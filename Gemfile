@@ -27,6 +27,9 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+
+gem 'activeadmin'
+
 # ログイン機能
 gem 'devise'
 # 日本語化(Rails 6の場合)
@@ -37,6 +40,10 @@ gem 'devise-i18n'
 gem 'devise-bootstrap-views', '~> 1.0'
 
 gem 'kaminari', '~> 0.17.0'
+
+gem 'annotate'
+
+gem 'mini_magick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
