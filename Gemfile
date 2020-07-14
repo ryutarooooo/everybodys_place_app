@@ -39,7 +39,7 @@ gem 'devise-i18n'
 # Bootstrap
 gem 'devise-bootstrap-views', '~> 1.0'
 
-gem 'kaminari', '~> 0.17.0'
+gem 'kaminari'
 
 gem 'annotate'
 
