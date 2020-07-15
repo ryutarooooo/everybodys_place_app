@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
   root "homes#index"
-  resources :users
+  devise_for :users
+  # resources :users, only: %i[] do
+  #   resource :mypages, only: %i[]
+  # end
 end
