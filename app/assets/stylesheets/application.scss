@@ -20,3 +20,27 @@
 .alert-alert {
   @extend .alert-danger;
 }
+
+
+
+body {
+  padding-top: 56px;
+}
+
+.mw-sm {
+  max-width: 576px;
+}
+
+.user-index {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+a.card {
+  margin-right: 20px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: black;
+}
