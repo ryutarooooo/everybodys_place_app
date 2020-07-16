@@ -8,10 +8,11 @@ class MypageController < ApplicationController
   end
 
   def update
+    current_user.update!(user_params)
+    redirect_to edit_mypage_path
   end
 
-  # def correct_user
-  #   @User = current_user.User.find_by(id: params[:id])
-  #   redirect_to root_path if @message.nil?
-  # end
+  def user_params
+    params.require(:user).permit(:name, :age, :place, :career, :using_reason, :content)
+  end
 end

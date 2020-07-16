@@ -21,12 +21,10 @@
   @extend .alert-danger;
 }
 
-.form-group {
-  @extend .container-fluid;
-  max-width: 576px;
-  padding: 2px;
+body {
+  padding-top: 56px;
 }
 
-body {
-  padding-top: 100px;
+.mw-sm {
+  max-width: 576px;
 }
