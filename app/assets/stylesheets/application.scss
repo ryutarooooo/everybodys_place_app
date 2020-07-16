@@ -28,3 +28,15 @@ body {
 .mw-sm {
   max-width: 576px;
 }
+
+.user-index {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
