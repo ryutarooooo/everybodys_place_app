@@ -21,6 +21,8 @@
   @extend .alert-danger;
 }
 
+
+
 body {
   padding-top: 56px;
 }
@@ -36,7 +38,9 @@ body {
   justify-content: space-around;
 }
 
-.card {
-  margin-right: 10px;
-  margin-bottom: 10px;
+a.card {
+  margin-right: 20px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: black;
 }

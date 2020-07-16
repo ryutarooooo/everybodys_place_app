@@ -9,7 +9,7 @@ class MypageController < ApplicationController
 
   def update
     current_user.update!(user_params)
-    redirect_to edit_mypage_path
+    redirect_to edit_mypage_path, notice: "更新しました"
   end
 
   def user_params
