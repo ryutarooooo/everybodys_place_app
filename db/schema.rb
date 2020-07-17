@@ -10,34 +10,77 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_122043) do
+ActiveRecord::Schema.define(version: 2020_07_17_090945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "children", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.integer "age"
+    t.integer "academic_year"
+    t.string "gender"
+    t.string "truancy_reason"
+    t.text "current_status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_children_on_user_id"
+  end
+
   create_table "comments", force: :cascade do |t|
-    t.string "user_id", null: false
+    t.integer "user_id", null: false
     t.integer "tweet_id", null: false
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "event_comments", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "event_id", null: false
+    t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "event_entries", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "event_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "name"
+    t.string "prefecture"
+    t.string "place"
+    t.string "title"
+    t.string "content"
+    t.integer "count"
+    t.integer "price"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "favorites", force: :cascade do |t|
-    t.string "user_id", null: false
-    t.string "tweet_id", null: false
+    t.integer "user_id", null: false
+    t.integer "tweet_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id", "tweet_id"], name: "index_favorites_on_user_id_and_tweet_id", unique: true
   end
 
   create_table "tweets", force: :cascade do |t|
-    t.string "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "title"
     t.text "content"
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_tweets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,10 +88,12 @@ ActiveRecord::Schema.define(version: 2020_07_13_122043) do
     t.string "profile_image"
     t.integer "age"
     t.string "place"
-    t.text "content"
-    t.string "career"
+    t.string "hobby"
     t.text "using_reason"
-    t.string "insta_id"
+    t.text "trouble"
+    t.text "hope"
+    t.text "content"
+    t.boolean "flag"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false
@@ -74,4 +119,6 @@ ActiveRecord::Schema.define(version: 2020_07_13_122043) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "children", "users"
+  add_foreign_key "tweets", "users"
 end

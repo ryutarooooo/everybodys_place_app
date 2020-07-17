@@ -5,10 +5,12 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :profile_image
       t.integer :age
       t.string :place
-      t.text :content
-      t.string :career
+      t.string :hobby
       t.text :using_reason
-      t.string :insta_id
+      t.text :trouble
+      t.text :hope
+      t.text :content
+      t.boolean :flag
 
       t.timestamps
     end
