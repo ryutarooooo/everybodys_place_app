@@ -2,7 +2,7 @@
 <%= form_with model: current_user, url: { action: :update }, local: true do |form| %>
   <div class="container mw-sm">
     <div class="row">
-      <div class="col-8">
+      <div class="col-6">
         <div class="form-group">
           <%= form.label :name, "名前" %>
           <%= form.text_field :name, class: "form-control " %>
@@ -16,7 +16,7 @@
           <%= form.text_field :place, class: "form-control " %>
         </div>
       </div>
-      <div class="col-4">
+      <div class="col-6">
         <div class="form-group">
           <%= form.label :profile_image, "ユーザー写真" %>
           <%= form.file_field :image %>

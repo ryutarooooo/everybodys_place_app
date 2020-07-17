@@ -11,6 +11,14 @@
       <% if tweet.user == current_user %>
         <%= link_to "削除", tweet_path(tweet), method: :delete, data: { confirm: "削除しますか？"} %>
         <%= link_to "編集", edit_tweet_path(tweet) %>
+      <% else %>
+        <% if @favorite_tweet_ids.include?(tweet.id) %>
+          <!-- いいね!済み -->
+          <%= link_to '★', tweet_favorites_path(tweet), method: :delete, class: "star"%>
+        <% else %>
+          <!-- いいね!していない -->
+          <%= link_to '☆', tweet_favorites_path(tweet), method: :post , class: "star"%>
+        <% end %>
       <% end %>
     </p>
   </div>

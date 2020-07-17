@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: %i[index show]
   resource :mypage, only: %i[show edit update], controller: "mypage"
-  resources :tweets
+  resources :tweets do
+    resource :favorites, only: [:create, :destroy]
+  end
 end
