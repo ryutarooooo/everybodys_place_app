@@ -1,1 +1,11 @@
-
+<% @tweets.each do |tweet| %>
+  <div class="box28">
+    <span class="box-name"><%= tweet.user.name %></span>
+    <div class="tweet-left">
+      <h3><%= tweet.title %></h3>
+    </div>
+    <p><%= tweet.content %></p>
+    <br>
+    <%= l tweet.created_at %>
+  </div>
+<% end %>
