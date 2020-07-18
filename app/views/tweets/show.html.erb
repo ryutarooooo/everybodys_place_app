@@ -7,3 +7,11 @@
   <br>
   <%= l @tweet.created_at %>
 </div>
+<% @tweet.comments.each do |comment| %>
+  <div class="box29">
+    <span class="box-name"><%= comment.user.name %></span>
+    <div class="tweet-left">
+      <h3><%= comment.content %></h3>
+    </div>
+  </div>
+<% end %>

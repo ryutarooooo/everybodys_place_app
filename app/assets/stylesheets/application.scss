@@ -74,6 +74,36 @@ a.card {
   padding: 0;
 }
 
+.box29 {
+  position: relative;
+  margin: 2em 0;
+  padding: 25px 10px 7px;
+  border: solid 2px greenyellow;
+  background: #f1f1f1;
+  max-width: 576px;
+  margin: 0 auto;
+}
+
+.box29 .box-name {
+  position: absolute;
+  display: inline-block;
+  top: -2px;
+  left: -2px;
+  padding: 0 9px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 17px;
+  background: greenyellow;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.box29 p {
+  margin: 10;
+  padding: 0;
+}
+
+
 .star {
   text-decoration: none;
   color: black;
