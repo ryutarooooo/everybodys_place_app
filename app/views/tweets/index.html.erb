@@ -20,6 +20,7 @@
           <%= link_to '☆', tweet_favorites_path(tweet), method: :post , class: "star"%>
         <% end %>
       <% end %>
+      <%= link_to "【返信】 #{tweet.comments.count}",tweet %>
     </p>
   </div>
 <% end %>
