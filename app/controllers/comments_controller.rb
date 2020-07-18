@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
 
   def create
     current_user.comments.create!(comment_params)
-    redirect_to tweets_path
+    redirect_to tweet_path(params[:tweet_id])
   end
 
   def edit
