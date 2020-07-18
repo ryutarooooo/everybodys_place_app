@@ -19,8 +19,10 @@
           <!-- いいね!していない -->
           <%= link_to '☆', tweet_favorites_path(tweet), method: :post , class: "star"%>
         <% end %>
-      <% end %>
-      <%= link_to "【返信数】 #{tweet.comments.count}",tweet %>
-    </p>
-  </div>
+      </p>
+    <% end %>
+    <%= link_to "【返信する】 ", new_tweet_comment_path(tweet) %>
+    <%= link_to "【返信数】 #{tweet.comments.count}",tweet %>
+  </p>
+</div>
 <% end %>

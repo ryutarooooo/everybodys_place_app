@@ -1,2 +1,12 @@
-<h1>Comments#new</h1>
-<p>Find me in app/views/comments/new.html.erb</p>
+<%= render "shared/flash_messages" %>
+<%= form_with model: [@tweet,@comment], local: true do |form| %>
+  <div class="container mw-sm">
+    <div class="form-group">
+      <%= form.label :content, "返信" %>
+      <%= form.text_area :content, class: "form-control", rows: 10  %>
+    </div>
+    <div>
+      <%= form.submit "投稿",  class: "btn btn-block btn-primary" %>
+    </div>
+  </div>
+<% end %>

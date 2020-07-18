@@ -1,14 +1,23 @@
 class CommentsController < ApplicationController
+  before_action :correct_user, only: %i[edit update destroy]
+
   def index
   end
 
   def show
   end
 
-  def create
+  def new
+    @tweet = Tweet.find(params[:tweet_id])
+    @comment = Comment.new
   end
 
-  def new
+  def create
+    current_user.comments.create!(comment_params)
+    redirect_to tweets_path
+  end
+
+  def edit
   end
 
   def update
@@ -17,6 +26,14 @@ class CommentsController < ApplicationController
   def destroy
   end
 
-  def edit
+  private
+
+  def comment_params
+    params.require(:comment).permit(:content).merge params.permit(:tweet_id)
+  end
+
+  def correct_user
+    @comment = current_user.comments.find_by(id: params[:id])
+    redirect_to tweets_path if @comment.nil?
   end
 end
