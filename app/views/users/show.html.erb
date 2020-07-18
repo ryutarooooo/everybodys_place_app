@@ -6,9 +6,15 @@
       <li class="list-group-item"><%= "名前 : #{@user.name}" %></li>
       <li class="list-group-item"><%= "年齢 : #{@user.age}" %></li>
       <li class="list-group-item"><%= "出身 : #{@user.place}" %></li>
-      <li class="list-group-item"><%= "経歴 : #{@user.career}" %></li>
-      <li class="list-group-item"><%= "なぜ入会しようと思ったか : #{@user.using_reason}" %></li>
-      <li class="list-group-item"><%= "今後どうしていきたいか : #{@user.content}" %></li>
+      <li class="list-group-item"><%= "趣味 : #{@user.hobby}" %></li>
+      <li class="list-group-item">---なぜ入会しようと思ったか---<br>
+        <%= @user.using_reason %></li>
+      <li class="list-group-item">---悩み事---<br>
+        <%= @user.trouble %></li>
+      <li class="list-group-item">---今後どうして行きたいか---<br>
+        <%= @user.content %></li>
+      <li class="list-group-item">---このコミュニティーで望むこと---<br>
+        <%= @user.hope %></li>
     </ul>
   </div>
 </div>

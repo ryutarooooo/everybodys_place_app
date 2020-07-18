@@ -13,6 +13,6 @@ class MypageController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :age, :place, :career, :using_reason, :content)
+    params.require(:user).permit(:name, :age, :place, :hobby, :using_reason, :trouble, :hope, :content)
   end
 end

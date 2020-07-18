@@ -5,9 +5,11 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.includes(:user).order(updated_at: "desc")
+    @favorite_tweet_ids = current_user.favorites.pluck(:tweet_id)
   end
 
   def show
+    @tweet = Tweet.find(params[:id])
   end
 
   def new

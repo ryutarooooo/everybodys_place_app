@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  validates :name, presence: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -11,4 +10,5 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :event_entries, dependent: :destroy
   has_many :event_comments, dependent: :destroy
+  has_many :favorites_tweet, through: :favorites, source: :tweet
 end
