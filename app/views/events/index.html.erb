@@ -1,0 +1,34 @@
+<% @events.each do |event| %>
+  <div class="box30">
+    <span class="box-name"><%= event.user.name %></span>
+    <div class="event-left">
+      <h3><%= event.name %></h3>
+    </div>
+    <%= event.prefecture %>
+    <%= event.place %>
+    <br>
+    <%= event.title %>
+    <br>
+    <%= event.content %>
+    <br>
+    <%= event.count %>
+    <br>
+    <%= event.price %>
+    <p class = "current-event">
+      <% if event.user == current_user %>
+        <%= link_to "削除",event_path(event), method: :delete, data: { confirm: "削除しますか？"} %>
+        <%= link_to "編集", edit_event_path(event) %>
+      <% else %>
+        <% if @event_entries_event_ids.include?(event.id) %>
+          <!-- いいね!済み -->
+          <%= link_to '★', event_event_entries_path(event), method: :delete, class: "star"%>
+        <% else %>
+          <!-- いいね!していない -->
+          <%= link_to '☆', event_event_entries_path(event), method: :post , class: "star"%>
+        <% end %>
+      </p>
+    <% end %>
+    <%= l event.created_at %>
+  </p>
+</div>
+<% end %>

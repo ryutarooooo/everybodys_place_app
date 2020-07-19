@@ -7,4 +7,7 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :comments
   end
+  resources :events do
+    resource :event_entries, only: [:create, :destroy]
+  end
 end

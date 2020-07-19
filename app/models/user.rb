@@ -11,4 +11,6 @@ class User < ApplicationRecord
   has_many :event_entries, dependent: :destroy
   has_many :event_comments, dependent: :destroy
   has_many :favorites_tweet, through: :favorites, source: :tweet
+
+  has_many :event_entries_events, through: :event_entries, source: :event
 end
