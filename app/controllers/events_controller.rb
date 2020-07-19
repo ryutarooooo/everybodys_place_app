@@ -5,6 +5,8 @@ class EventsController < ApplicationController
   end
 
   def show
+    @event = Event.find(params[:id])
+    @event_entries_event_ids = current_user.event_entries.pluck(:event_id)
   end
 
   def new
