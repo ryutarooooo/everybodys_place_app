@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   end
   resources :events do
     resource :event_entries, only: [:create, :destroy]
+    resources :event_comments
   end
 end

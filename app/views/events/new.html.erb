@@ -1,2 +1,22 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<%= render "shared/flash_messages" %>
+<%= form_with model: @event, local: true do |form| %>
+  <div class="container mw-sm">
+    <div class="form-group">
+      <%= form.label :name, "イベント名" %>
+      <%= form.text_field :name, class: "form-control" %>
+      <%= form.label :prefecture, "開催県" %>
+      <%= form.text_field :prefecture, class: "form-control"  %>
+      <%= form.label :place, "場所(県以降)" %>
+      <%= form.text_field :place, class: "form-control" %>
+      <%= form.label :content, "概要" %>
+      <%= form.text_area :content, class: "form-control", rows: 10  %>
+      <%= form.label :count, "応募人数" %>
+      <%= form.text_field :count, class: "form-control"  %>
+      <%= form.label :price, "参加費" %>
+      <%= form.text_field :price, class: "form-control"  %>
+    </div>
+    <div>
+      <%= form.submit "投稿",  class: "btn btn-block btn-primary" %>
+    </div>
+  </div>
+<% end %>
