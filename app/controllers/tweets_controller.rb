@@ -10,6 +10,7 @@ class TweetsController < ApplicationController
 
   def show
     @tweet = Tweet.find(params[:id])
+    @comment = Comment.new
   end
 
   def new
@@ -37,7 +38,7 @@ class TweetsController < ApplicationController
   private
 
   def tweet_params
-    params.require(:tweet).permit(:title, :content)
+    params.require(:tweet).permit(:title, :content, :comment)
   end
 
   def correct_user

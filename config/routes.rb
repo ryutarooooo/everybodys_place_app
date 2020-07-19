@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resource :mypage, only: %i[show edit update], controller: "mypage"
   resources :tweets do
     resource :favorites, only: [:create, :destroy]
+    resources :comments
   end
 end
