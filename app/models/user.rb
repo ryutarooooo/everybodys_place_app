@@ -13,4 +13,6 @@ class User < ApplicationRecord
   has_many :favorites_tweet, through: :favorites, source: :tweet
 
   has_many :event_entries_events, through: :event_entries, source: :event
+
+  mount_uploader :profile_image, ImageUploader
 end
