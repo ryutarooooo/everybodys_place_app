@@ -1,3 +1,4 @@
+<%= link_to "つぶやく" , new_tweet_path, class:"tweet" %>
 <% @tweets.each do |tweet| %>
   <div class="box28">
     <span class="box-name"><%= tweet.user.name %></span>
@@ -14,10 +15,10 @@
       <% else %>
         <% if @favorite_tweet_ids.include?(tweet.id) %>
           <!-- いいね!済み -->
-          <%= link_to '★', tweet_favorites_path(tweet), method: :delete, class: "star"%>
+          <%= link_to "★ #{tweet.favorites.count}", tweet_favorites_path(tweet), method: :delete, class: "star"%>
         <% else %>
           <!-- いいね!していない -->
-          <%= link_to '☆', tweet_favorites_path(tweet), method: :post , class: "star"%>
+          <%= link_to "☆ #{tweet.favorites.count}", tweet_favorites_path(tweet), method: :post , class: "star"%>
         <% end %>
       </p>
     <% end %>

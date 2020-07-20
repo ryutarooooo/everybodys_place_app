@@ -1,0 +1,53 @@
+<div class="box30">
+  <span class="box-name"><%= @event.user.name %></span>
+  <div class=event-left>
+    <h3><%= "---#{@event.name}---" %></h3>
+    <%= @event.prefecture %>
+    <%= @event.place %>
+    <br>
+    <%= "・#{@event.title}" %>
+    <br>
+    <%= "内容: #{@event.content}" %>
+    <br>
+    <%= "募集人数:#{@event.count}人" %>
+    <br>
+    <%="参加費用:#{@event.price}円"%>
+    <p class = "current-event">
+      <% if @event.user == current_user %>
+        <%= link_to "削除",event_path(@event), method: :delete, data: { confirm: "削除しますか？"} %>
+        <%= link_to "編集", edit_event_path(@event) %>
+      <% else %>
+        <% if @event_entries_event_ids.include?(@event.id) %>
+          <!-- いいね!済み -->
+          <%= link_to '★', event_event_entries_path(@event), method: :delete, class: "star"%>
+        <% else %>
+          <!-- いいね!していない -->
+          <%= link_to '☆', event_event_entries_path(@event), method: :post , class: "star"%>
+        <% end %>
+      </p>
+    <% end %>
+    <p class = "current-event">
+      <br>
+      <%=  "掲載日:#{l @event.created_at}" %>
+    </p>
+  </div>
+</div>
+<% @event.event_comments.each do |comment| %>
+  <div class="box29">
+    <span class="box-name"><%= comment.user.name %></span>
+    <div class="tweet-left">
+      <h3><%= comment.content %></h3>
+    </div>
+  </div>
+<% end %>
+<%= form_with model: [@event,@event_comment], local: true do |form| %>
+  <div class="container mw-sm">
+    <div class="form-group">
+      <%= form.label :content, "返信" %>
+      <%= form.text_area :content, class: "form-control", rows: 10  %>
+    </div>
+    <div>
+      <%= form.submit "投稿",  class: "btn btn-block btn-primary" %>
+    </div>
+  </div>
+<% end %>
