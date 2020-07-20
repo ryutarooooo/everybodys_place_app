@@ -1,4 +1,7 @@
-<%= link_to "つぶやく" , new_tweet_path, class:"tweet" %>
+<h1>つぶやき </h1>
+<%= link_to(new_tweet_path) do %>
+  <button class="btn btn-primary btn-lg">つぶやく</button>
+<% end %>
 <% @tweets.each do |tweet| %>
   <div class="box28">
     <span class="box-name"><%= tweet.user.name %></span>
