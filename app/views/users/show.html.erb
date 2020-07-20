@@ -1,20 +1,29 @@
-<h1>ユーザー一覧</h1>
 <div class="card">
-  <div><%= image_tag @user.profile_image.url,class:"show_user_image" %></div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"><%= "名前 : #{@user.name}" %></li>
-    <li class="list-group-item"><%= "年齢 : #{@user.age}" %></li>
-    <li class="list-group-item"><%= "出身 : #{@user.place}" %></li>
-    <li class="list-group-item"><%= "趣味 : #{@user.hobby}" %></li>
-    <li class="list-group-item">---なぜ入会しようと思ったか---<br>
-      <%= @user.using_reason %></li>
-    <li class="list-group-item">---悩み事---<br>
-      <%= @user.trouble %></li>
-    <li class="list-group-item">---今後どうして行きたいか---<br>
-      <%= @user.content %></li>
-    <li class="list-group-item">---このコミュニティーで望むこと---<br>
-      <%= @user.hope %></li>
-  </ul>
-</div>
-</div>
+  <div class="container mw-sm list-group-item">
+    <h5><%= "・#{@user.name}さんのプロフィール" %></h5>
+    <div class="row">
+      <div class="col-12 col-sm-6">
+        <div><%= image_tag @user.profile_image.url,class:"user_image" %></div>
+      </div>
+      <div class="col-12 col-sm-6">
+        <ul class="list-group list-group-flush ">
+          <li class="list-group-item"><%= "名前 : #{@user.name}" %></li>
+          <li class="list-group-item"><%= "年齢 : #{@user.age}" %></li>
+          <li class="list-group-item"><%= "出身 : #{@user.place}" %></li>
+          <li class="list-group-item"><%= "趣味 : #{@user.hobby}" %></li>
+          <li class="list-group-item"></li>
+        </ul>
+      </div>
+    </div>
+    <ul class="list-group list-group-flush ">
+      <li class="list-group-item">---なぜ入会しようと思ったか---<br>
+        <%= @user.using_reason %></li>
+      <li class="list-group-item">---悩み事---<br>
+        <%= @user.trouble %></li>
+      <li class="list-group-item">---今後どうして行きたいか---<br>
+        <%= @user.content %></li>
+      <li class="list-group-item">---このコミュニティーで望むこと---<br>
+        <%= @user.hope %></li>
+    </ul>
+  </div>
 </div>

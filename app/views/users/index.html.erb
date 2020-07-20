@@ -4,9 +4,7 @@
     <div class="hover-2">
       <a href="/users/<%= user.id %>" class="card">
         <div>
-          <% if user.profile_image? %>
-            <div><%= image_tag user.profile_image.url,class:"user_image" %></div>
-          <% end %>
+          <div><%= image_tag user.profile_image.url,class:"user_image" %></div>
         </div>
         <div class="card-body">
           <ul class="list-group list-group-flush">
