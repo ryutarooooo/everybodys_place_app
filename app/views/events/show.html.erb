@@ -12,6 +12,9 @@
     <%= "募集人数:#{@event.count}人" %>
     <br>
     <%="参加費用:#{@event.price}円"%>
+    <% if @event.image? %>
+      <p><%= image_tag @event.image.url, class:"user_image" %></p>
+    <% end %>
     <p class = "current-event">
       <% if @event.user == current_user %>
         <%= link_to "削除",event_path(@event), method: :delete, data: { confirm: "削除しますか？"} %>

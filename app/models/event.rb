@@ -4,4 +4,6 @@ class Event < ApplicationRecord
   has_many :event_entries, dependent: :destroy
 
   has_many :event_entries_users, through: :event_entries, source: :user
+
+  mount_uploader :image, ImageUploader
 end
