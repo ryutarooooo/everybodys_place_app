@@ -19,7 +19,7 @@
       <div class="col-6">
         <div class="form-group">
           <% if current_user.profile_image.presence %>
-            <div class="img_profile" width="800" height="100"><%= image_tag current_user.profile_image.url  %></div>
+            <div><%= image_tag current_user.profile_image.url, class: "user_image" %></div>
             <%= form.label :profile_image, "変更する" %>
             <%= form.file_field :profile_image, accept: "image/png,image/jpeg,image/gif" %>
           <% else %>

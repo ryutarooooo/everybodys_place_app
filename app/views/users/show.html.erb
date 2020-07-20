@@ -1,21 +1,20 @@
 <h1>ユーザー一覧</h1>
 <div class="card">
-  <svg class="bd-placeholder-img card-img-top" width="100%"  xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
-  <div class="card-body">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><%= "名前 : #{@user.name}" %></li>
-      <li class="list-group-item"><%= "年齢 : #{@user.age}" %></li>
-      <li class="list-group-item"><%= "出身 : #{@user.place}" %></li>
-      <li class="list-group-item"><%= "趣味 : #{@user.hobby}" %></li>
-      <li class="list-group-item">---なぜ入会しようと思ったか---<br>
-        <%= @user.using_reason %></li>
-      <li class="list-group-item">---悩み事---<br>
-        <%= @user.trouble %></li>
-      <li class="list-group-item">---今後どうして行きたいか---<br>
-        <%= @user.content %></li>
-      <li class="list-group-item">---このコミュニティーで望むこと---<br>
-        <%= @user.hope %></li>
-    </ul>
-  </div>
+  <div><%= image_tag @user.profile_image.url,class:"show_user_image" %></div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= "名前 : #{@user.name}" %></li>
+    <li class="list-group-item"><%= "年齢 : #{@user.age}" %></li>
+    <li class="list-group-item"><%= "出身 : #{@user.place}" %></li>
+    <li class="list-group-item"><%= "趣味 : #{@user.hobby}" %></li>
+    <li class="list-group-item">---なぜ入会しようと思ったか---<br>
+      <%= @user.using_reason %></li>
+    <li class="list-group-item">---悩み事---<br>
+      <%= @user.trouble %></li>
+    <li class="list-group-item">---今後どうして行きたいか---<br>
+      <%= @user.content %></li>
+    <li class="list-group-item">---このコミュニティーで望むこと---<br>
+      <%= @user.hope %></li>
+  </ul>
+</div>
 </div>
 </div>
