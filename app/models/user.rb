@@ -15,4 +15,9 @@ class User < ApplicationRecord
   has_many :event_entries_events, through: :event_entries, source: :event
 
   mount_uploader :profile_image, ImageUploader
+
+  validate :name, presence: true
+  validate :age, presence: true
+  validate :place, presence: true
+  validate :gender, presence: true
 end

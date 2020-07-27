@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_20_072040) do
+ActiveRecord::Schema.define(version: 2020_07_17_090945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "children", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.integer "position", null: false
     t.string "name"
     t.integer "age"
     t.integer "academic_year"
@@ -25,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_072040) do
     t.text "current_status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "position"], name: "index_children_on_user_id_and_position", unique: true
     t.index ["user_id"], name: "index_children_on_user_id"
   end
 
@@ -49,6 +51,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_072040) do
     t.integer "event_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "event_id"], name: "index_event_entries_on_user_id_and_event_id", unique: true
   end
 
   create_table "events", force: :cascade do |t|
@@ -61,10 +64,10 @@ ActiveRecord::Schema.define(version: 2020_07_20_072040) do
     t.integer "count"
     t.integer "price"
     t.string "image"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.datetime "start_time"
     t.datetime "end_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -89,13 +92,14 @@ ActiveRecord::Schema.define(version: 2020_07_20_072040) do
     t.string "name"
     t.string "profile_image"
     t.integer "age"
+    t.string "gender"
     t.string "place"
     t.string "hobby"
     t.text "using_reason"
     t.text "trouble"
     t.text "hope"
     t.text "content"
-    t.boolean "flag"
+    t.boolean "flag", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false
