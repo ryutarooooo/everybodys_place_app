@@ -10,7 +10,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.text :trouble
       t.text :hope
       t.text :content
-      t.boolean :flag
+      t.boolean :flag, default: true
 
       t.timestamps
     end

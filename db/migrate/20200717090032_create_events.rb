@@ -10,6 +10,8 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.integer :count
       t.integer :price
       t.string :image
+      t.datetime :start_time
+      t.datetime :end_time
 
       t.timestamps
     end

@@ -1,2 +1,26 @@
-<h1>Children#edit</h1>
-<p>Find me in app/views/children/edit.html.erb</p>
+<%= render "shared/flash_messages" %>
+<div class="container mw-sm">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a href="#photo1" class="nav-link active" data-toggle="tab">タブ１</a>
+    </li>
+    <li class="nav-item">
+      <a href="#photo2" class="nav-link" data-toggle="tab">タブ2</a>
+    </li>
+    <li class="nav-item">
+      <a href="#photo3" class="nav-link" data-toggle="tab">タブ3</a>
+    </li>
+  </ul>
+  <!-- 写真部分 -->
+  <div class="tab-content">
+    <div id="photo1" class="tab-pane active">
+      <%= render "form", child: @child_1 %>
+    </div>
+    <div id="photo2" class="tab-pane">
+      <%= render "form", child: @child_2 %>
+    </div>
+    <div id="photo3" class="tab-pane">
+      <%= render "form", child: @child_3 %>
+    </div>
+  </div>
+</div>
