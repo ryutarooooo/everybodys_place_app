@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_07_17_090945) do
     t.text "current_status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "position"], name: "index_children_on_user_id_and_position", unique: true
     t.index ["user_id"], name: "index_children_on_user_id"
   end
 
@@ -91,6 +92,7 @@ ActiveRecord::Schema.define(version: 2020_07_17_090945) do
     t.string "name"
     t.string "profile_image"
     t.integer "age"
+    t.string "gender"
     t.string "place"
     t.string "hobby"
     t.text "using_reason"

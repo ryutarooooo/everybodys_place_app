@@ -20,7 +20,7 @@ class ChildrenController < ApplicationController
   def update
     @child = current_user.children.find_or_initialize_by(position: params[:child][:position])
     @child.update!(child_params)
-    redirect_to edit_child_path, notice: "更新しました"
+    redirect_to edit_children_path, notice: "更新しました"
   end
 
   def destroy
