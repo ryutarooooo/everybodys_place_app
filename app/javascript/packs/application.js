@@ -10,3 +10,4 @@ require("channels")
 
 require("bootstrap/dist/js/bootstrap")
 require("@fortawesome/fontawesome-free/js/all")
+require('jquery');
