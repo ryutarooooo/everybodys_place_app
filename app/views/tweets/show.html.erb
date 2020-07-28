@@ -7,22 +7,19 @@
   <br>
   <%= l @tweet.created_at %>
 </div>
-<% @tweet.comments.each do |comment| %>
-  <div class="box29">
-    <span class="box-name"><%= comment.user.name %></span>
-    <div class="tweet-left">
-      <h3><%= comment.content %></h3>
-    </div>
-  </div>
-<% end %>
-<%= form_with model: [@tweet,@comment], local: true do |form| %>
-  <div class="container mw-sm">
-    <div class="form-group">
-      <%= form.label :content, "返信" %>
-      <%= form.text_area :content, class: "form-control", rows: 10  %>
-    </div>
-    <div>
-      <%= form.submit "投稿",  class: "btn btn-block btn-primary" %>
-    </div>
-  </div>
-<% end %>
+<div id="comments" data-tweet_id="<%= @tweet.id %>">
+  <%= render @comments %>
+</div>
+<%= label_tag :content, 'Say something:' %>
+<%= text_field_tag :content, nil, data: { behavior: 'tweet_speaker' } %>
+<%#= form_with model: [@tweet,@comment], local: true do |form| %>
+  <%# <div class="container mw-sm"> %>
+  <%# <div id="content" class="form-group"> %>
+  <%#= form.label :content, "返信" %>
+  <%#= form.text_area :content, class: "form-control", rows: 10  %>
+  <%# </div> %>
+  <%# <div> %>
+  <%#= form.submit "投稿",  class: "btn btn-block btn-primary" %>
+  <%# </div> %>
+  <%# </div> %>
+  <%# end %>

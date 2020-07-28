@@ -25,7 +25,7 @@
         <% end %>
       </p>
     <% end %>
-    <%= link_to "返信する【返信数】 #{tweet.comments.count}",tweet %>
+    <%= link_to "返信する【返信数】 #{tweet.comments.count}",tweet ,data: {"turbolinks": false} %>
   </p>
 </div>
 <% end %>
