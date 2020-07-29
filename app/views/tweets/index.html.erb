@@ -1,31 +1,35 @@
-<h1>つぶやき </h1>
-<%= link_to(new_tweet_path) do %>
-  <button class="btn btn-primary btn-lg">つぶやく</button>
-<% end %>
-<% @tweets.each do |tweet| %>
-  <div class="box28">
-    <span class="box-name"><%= tweet.user.name %></span>
-    <div class="tweet-left">
-      <h3><%= tweet.title %></h3>
-    </div>
-    <p><%= tweet.content %></p>
-    <br>
-    <%= l tweet.created_at %>
-    <p class = "current-tweet">
-      <% if tweet.user == current_user %>
-        <%= link_to "削除", tweet_path(tweet), method: :delete, data: { confirm: "削除しますか？"} %>
-        <%= link_to "編集", edit_tweet_path(tweet) %>
-      <% else %>
-        <% if @favorite_tweet_ids.include?(tweet.id) %>
-          <!-- いいね!済み -->
-          <%= link_to "★ #{tweet.favorites.count}", tweet_favorites_path(tweet), method: :delete, class: "star"%>
-        <% else %>
-          <!-- いいね!していない -->
-          <%= link_to "☆ #{tweet.favorites.count}", tweet_favorites_path(tweet), method: :post , class: "star"%>
-        <% end %>
-      </p>
+<div class="mw-sm">
+  <div class="title">
+    <h1>つぶやき </h1>
+    <%= link_to(new_tweet_path) do %>
+      <button class="btn btn-primary btn-lg">つぶやく</button>
     <% end %>
-    <%= link_to "返信する【返信数】 #{tweet.comments.count}",tweet ,data: {"turbolinks": false} %>
-  </p>
-</div>
+  </div>
+  <% @tweets.each do |tweet| %>
+    <div class="box28">
+      <span class="box-name"><%= tweet.user.name %></span>
+      <div class="tweet-left">
+        <h3><%= tweet.title %></h3>
+      </div>
+      <p><%= tweet.content %></p>
+      <br>
+      <%= l tweet.created_at %>
+      <p class = "current-tweet">
+        <% if tweet.user == current_user %>
+          <%= link_to "削除", tweet_path(tweet), method: :delete, data: { confirm: "削除しますか？"} %>
+          <%= link_to "編集", edit_tweet_path(tweet) %>
+        <% else %>
+          <% if @favorite_tweet_ids.include?(tweet.id) %>
+            <!-- いいね!済み -->
+            <%= link_to "★ #{tweet.favorites.count}", tweet_favorites_path(tweet), method: :delete, class: "star"%>
+          <% else %>
+            <!-- いいね!していない -->
+            <%= link_to "☆ #{tweet.favorites.count}", tweet_favorites_path(tweet), method: :post , class: "star"%>
+          <% end %>
+        </p>
+      <% end %>
+      <%= link_to "返信する【返信数】 #{tweet.comments.count}",tweet ,data: {"turbolinks": false} %>
+    </p>
+  </div>
 <% end %>
+</div>
