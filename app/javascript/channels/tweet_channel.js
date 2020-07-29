@@ -24,12 +24,20 @@ $(function () {
     }
   });
 
-  $(document).on('keypress', '[data-behavior~=tweet_speaker]', function (event) {
-    if (event.keyCode === 13) {
-      tweetChannel.speak(event.target.value);
+  const input = document.getElementById("comment")
+  const button = document.getElementById("button")
+  button.addEventListener("click", function () {
+    let content = input.value
+    tweetChannel.speak(content)
+    input.value = ''
+  })
 
-      event.target.value = '';
-      return event.preventDefault();
-    }
-  });
+  // $(document).on('keypress', '[data-behavior~=tweet_speaker]', function (event) {
+  //   if (event.keyCode === 13) {
+  //     tweetChannel.speak(event.target.value);
+
+  //     event.target.value = '';
+  //     return event.preventDefault();
+  //   }
+  // });
 });
