@@ -15,4 +15,13 @@ class User < ApplicationRecord
   has_many :event_entries_events, through: :event_entries, source: :event
 
   mount_uploader :profile_image, ImageUploader
+
+  has_many :active_dms, class_name: "Dm",
+                        foreign_key: "send_user_id",
+                        dependent: :destroy
+  has_many :passive_dms, class_name: "Dm",
+                         foreign_key: "receive_user_id",
+                         dependent: :destroy
+  has_many :send_dms, through: :active_dms, source: :receive_user
+  has_many :receive_dms, through: :passive_dms, source: :send_user
 end
