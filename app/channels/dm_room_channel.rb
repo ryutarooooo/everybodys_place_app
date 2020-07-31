@@ -8,6 +8,6 @@ class DmRoomChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    ActionCable.server.broadcast "dm_room_channel", dm: data["dm"]
+    Dm.create! content: data["dm"]
   end
 end

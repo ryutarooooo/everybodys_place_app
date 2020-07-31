@@ -8,6 +8,6 @@ class DmBroadcastJob < ApplicationJob
   private
 
   def render_dm(dm)
-    ApplicationController.renderer.render partial: "dm/dm", locals: { dm: dm }
+    ApplicationController.renderer.render partial: "dms/dm", locals: { dm: dm }
   end
 end

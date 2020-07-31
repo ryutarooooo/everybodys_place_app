@@ -10,7 +10,7 @@ const dmChannel = consumer.subscriptions.create("DmRoomChannel", {
   },
 
   received: function (data) {
-    return alert(data["dm"]);
+    return $('#dms').append(data['dm']);
   },
 
   speak: function (dm) {
@@ -25,5 +25,6 @@ $(document).on('keypress', '[data-behavior~=dm_room_speaker]', function (event) 
     dmChannel.speak(event.target.value);
     event.target.value = '';
     return event.preventDefault();
+    debugger
   }
 });
