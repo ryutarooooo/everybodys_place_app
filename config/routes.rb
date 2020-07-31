@@ -15,4 +15,6 @@ Rails.application.routes.draw do
     resource :event_entries, only: [:create, :destroy]
     resources :event_comments
   end
+
+  get "dm_rooms/show"
 end
