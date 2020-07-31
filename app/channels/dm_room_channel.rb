@@ -1,6 +1,6 @@
 class DmRoomChannel < ApplicationCable::Channel
   def subscribed
-    # stream_from "some_channel"
+    stream_from "dm_room_channel"
   end
 
   def unsubscribed
@@ -8,6 +8,6 @@ class DmRoomChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    Dm.create! content: data["data"]
+    ActionCable.server.broadcast "dm_room_channel", dm: data["dm"]
   end
 end

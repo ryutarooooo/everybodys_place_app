@@ -1,6 +1,6 @@
 import consumer from "./consumer"
 
-const chatChannel = consumer.subscriptions.create("DmRoomChannel", {
+const dmChannel = consumer.subscriptions.create("DmRoomChannel", {
   connected() {
     // Called when the subscription is ready for use on the server
   },
@@ -22,7 +22,7 @@ const chatChannel = consumer.subscriptions.create("DmRoomChannel", {
 
 $(document).on('keypress', '[data-behavior~=dm_room_speaker]', function (event) {
   if (event.keyCode === 13) {
-    chatChannel.speak(event.target.value);
+    dmChannel.speak(event.target.value);
     event.target.value = '';
     return event.preventDefault();
   }
