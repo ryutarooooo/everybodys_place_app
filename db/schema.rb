@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 2020_07_30_051338) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["receive_user_id"], name: "index_dms_on_receive_user_id"
-    t.index ["send_user_id", "receive_user_id"], name: "index_dms_on_send_user_id_and_receive_user_id", unique: true
     t.index ["send_user_id"], name: "index_dms_on_send_user_id"
   end
 

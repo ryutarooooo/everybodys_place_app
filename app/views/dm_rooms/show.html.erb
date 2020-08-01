@@ -1,0 +1,6 @@
+<h1>Chat room</h1>
+<div id='dms' data-receive_user_id="<%= @receive_user.id %>">
+  <%= render partial: "dm", collection: @dms, locals: { send_user: current_user, receive_user: @receive_user } %>
+</div>
+<%= label_tag :content, 'Say something:' %>
+<%= text_field_tag :content, nil, data: { behavior: 'dm_room_speaker' } %>

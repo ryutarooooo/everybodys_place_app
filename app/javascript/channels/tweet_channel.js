@@ -1,43 +1,38 @@
 import consumer from "./consumer"
 
+
 $(function () {
-  const tweetChannel = consumer.subscriptions.create({
-    channel: 'TweetChannel',
-    tweet: $('#comments').data('tweet_id')
-  }, {
-    connected() {
-      // Called when the subscription is ready for use on the server
-    },
+  const commentArea = document.getElementById("comment-area")
 
-    disconnected() {
-      // Called when the subscription has been terminated by the server
-    },
+  if (commentArea) {
+    const tweetChannel = consumer.subscriptions.create({
+      channel: 'TweetChannel',
+      tweet: $('#comments').data('tweet_id')
+    }, {
+      connected() {
+        // Called when the subscription is ready for use on the server
+      },
 
-    received: function (data) {
-      return $('#comments').append(data['comment']);
-    },
+      disconnected() {
+        // Called when the subscription has been terminated by the server
+      },
 
-    speak: function (comment) {
-      return this.perform('speak', {
-        comment: comment
-      });
-    }
-  });
+      received: function (data) {
+        return $('#comments').append(data['comment']);
+      },
 
-  const input = document.getElementById("comment")
-  const button = document.getElementById("button")
-  button.addEventListener("click", function () {
-    let content = input.value
-    tweetChannel.speak(content)
-    input.value = ''
-  })
+      speak: function (comment) {
+        return this.perform('speak', {
+          comment: comment
+        });
+      }
+    });
 
-  // $(document).on('keypress', '[data-behavior~=tweet_speaker]', function (event) {
-  //   if (event.keyCode === 13) {
-  //     tweetChannel.speak(event.target.value);
-
-  //     event.target.value = '';
-  //     return event.preventDefault();
-  //   }
-  // });
+    const commentButton = document.getElementById("comment-button")
+    commentButton.addEventListener("click", function () {
+      let content = commentArea.value
+      tweetChannel.speak(content)
+      commentArea.value = ''
+    })
+  }
 });

@@ -16,5 +16,5 @@ Rails.application.routes.draw do
     resources :event_comments
   end
 
-  get "dm_rooms/show"
+  resources :dm_rooms, only: %i[show]
 end

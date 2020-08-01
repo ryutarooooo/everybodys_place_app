@@ -14,10 +14,10 @@
   <form class="form-inline">
     <div class="form-group">
       <%= label_tag :content, 'コメント'  %>
-      <%= text_area_tag :content, nil, data: { behavior: 'tweet_speaker' }, class:"form-control", id: "comment", rows: 3; %>
+      <%= text_area_tag :content, nil, data: { behavior: 'tweet_speaker' }, class:"form-control", id: "comment-area", rows: 3; %>
     </div>
   </form>
-  <button id="button" class="btn btn-primary">送信</button>
+  <button id="comment-button" class="btn btn-primary">送信</button>
 </div>
 <%#= form_with model: [@tweet,@comment], local: true do |form| %>
   <%# <div class="container mw-sm"> %>
