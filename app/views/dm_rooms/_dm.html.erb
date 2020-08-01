@@ -4,9 +4,11 @@
       <div class="faceicon-right">
         <%= "#{send_user.name}" %>
       </div>
-      <div class="mycomment">
-        <p><%= "#{dm.content}" %><br>
-          <%= "#{dm.created_at}" %></p>
+      <div class="chatting-right">
+        <div class="says-right">
+          <p><%= "#{dm.content}" %><br>
+            <%= "#{dm.created_at}" %></p>
+        </div>
       </div>
     </div>
   <% else %>
@@ -14,8 +16,8 @@
       <div class="faceicon-left">
         <%= "#{receive_user.name}" %>
       </div>
-      <div class="chatting">
-        <div class="says">
+      <div class="chatting-left">
+        <div class="says-left">
           <p><%= "#{dm.content}" %><br>
             <%= "#{dm.created_at}" %></p>
         </div>

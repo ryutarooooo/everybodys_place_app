@@ -308,12 +308,12 @@ a.card {
   border-radius: 50%;
 }
 
-.balloon6 .chatting {
+.balloon6 .chatting-left {
   width: 100%;
   text-align: left;
 }
 
-.says {
+.says-left {
   display: inline-block;
   position: relative;
   margin: 0 0 0 50px;
@@ -321,9 +321,10 @@ a.card {
   max-width: 250px;
   border-radius: 12px;
   background: #edf1ee;
+
 }
 
-.says:after {
+.says-left:after {
   content: "";
   display: inline-block;
   position: absolute;
@@ -335,17 +336,17 @@ a.card {
   transform: rotate(35deg);
 }
 
-.says p {
+.says-left p {
   margin: 0;
   padding: 0;
 }
 
 /*以下、③右側の緑コメント*/
-.mycomment {
+.chatting-right {
   margin: 10px 0;
 }
 
-.mycomment p {
+.chatting-right p {
   display: inline-block;
   position: relative;
   margin: 0px 10px 0 0;
@@ -356,7 +357,7 @@ a.card {
   font-size: 15px;
 }
 
-.mycomment p:after {
+.chatting-right p:after {
   content: "";
   position: absolute;
   top: 10px;

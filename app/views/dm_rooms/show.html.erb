@@ -1,5 +1,5 @@
 <div class="line-bc">
-  <h1>ダイレクトメッセージ</h1>
+  <h1 data-current_user_id="<%= current_user.id %>">ダイレクトメッセージ</h1>
   <div id='dms' data-receive_user_id="<%= @receive_user.id %>">
     <%= render partial: "dm", collection: @dms, locals: { send_user: current_user, receive_user: @receive_user } %>
   </div>

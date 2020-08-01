@@ -16,7 +16,12 @@ $(function () {
       },
 
       received: function (data) {
-        return $('#dms').append(data['dm']);
+        let message = data['dm']
+        const currentUserId = parseInt(document.getElementsByTagName("h1")[0].dataset.current_user_id)
+        if (data.send_user_id != currentUserId) {
+          message = message.replace('faceicon-right', 'faceicon-left').replace('chatting-right', 'chatting-left').replace('says-right', 'says-left')
+        }
+        return $('#dms').append(message);
       },
 
       speak: function (dm) {
