@@ -1,7 +1,7 @@
 <div class="card">
   <div class="container mw-sm list-group-item">
     <h5><%= "・#{@user.name}さんのプロフィール" %></h5>
-    <%= link_to "お話する", "/dm_rooms/#{@user.id}" %>
+    <%= link_to "お話する", "/dm_rooms/#{@user.id}", data: {"turbolinks": false} %>
     <div class="row">
       <div class="col-12 col-sm-6">
         <div><%= image_tag @user.profile_image.url,class:"user_image" %></div>
