@@ -259,6 +259,9 @@ a.card {
   }
 }
 
+#dm-area {
+  width: 100%;
+}
 
 .comment_content {
   font-size: 30 px;
@@ -345,7 +348,7 @@ a.card {
 .mycomment p {
   display: inline-block;
   position: relative;
-  margin: 0 10px 0 0;
+  margin: 0px 10px 0 0;
   padding: 8px;
   max-width: 250px;
   border-radius: 12px;
@@ -356,7 +359,7 @@ a.card {
 .mycomment p:after {
   content: "";
   position: absolute;
-  top: 3px;
+  top: 10px;
   right: -19px;
   border: 8px solid transparent;
   border-left: 18px solid #30e852;
