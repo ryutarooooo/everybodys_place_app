@@ -1,3 +1,7 @@
 <div class='dm'>
-  <p><%= dm.content %></p>
+  <% if dm.send_user_id == send_user.id %>
+    <p><%= "#{send_user.name} : #{dm.content} :#{dm.created_at}" %></p>
+  <% else %>
+    <p><%= "#{receive_user.name} : #{dm.content} :#{dm.created_at}" %></p>
+  <% end %>
 </div>

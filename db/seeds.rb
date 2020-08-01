@@ -24,7 +24,7 @@ favorite4 = Favorite.create!(user_id: user2.id, tweet_id: tweet3.id)
 
 favorite5 = Favorite.create!(user_id: user1.id, tweet_id: tweet2.id)
 
-dm1 = Dm.create!(send_user_id: user1.id, receive_user_id: user2.id)
-dm2 = Dm.create!(send_user_id: user1.id, receive_user_id: user3.id)
-dm3 = Dm.create!(send_user_id: user3.id, receive_user_id: user1.id)
+dm1 = Dm.create!(send_user_id: user1.id, receive_user_id: user2.id, content: "a")
+dm2 = Dm.create!(send_user_id: user1.id, receive_user_id: user3.id, content: "b")
+dm3 = Dm.create!(send_user_id: user3.id, receive_user_id: user1.id, content: "c")
 puts "成功しました"

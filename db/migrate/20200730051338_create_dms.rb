@@ -9,6 +9,5 @@ class CreateDms < ActiveRecord::Migration[6.0]
     end
     add_index :dms, :send_user_id
     add_index :dms, :receive_user_id
-    add_index :dms, [:send_user_id, :receive_user_id], unique: true
   end
 end

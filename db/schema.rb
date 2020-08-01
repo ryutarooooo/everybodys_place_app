@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_31_123653) do
+ActiveRecord::Schema.define(version: 2020_07_30_051338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,24 +38,14 @@ ActiveRecord::Schema.define(version: 2020_07_31_123653) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "dm_rooms", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "dms", force: :cascade do |t|
     t.integer "send_user_id"
     t.integer "receive_user_id"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
-    t.bigint "dm_room_id", null: false
-    t.index ["dm_room_id"], name: "index_dms_on_dm_room_id"
     t.index ["receive_user_id"], name: "index_dms_on_receive_user_id"
-    t.index ["send_user_id", "receive_user_id"], name: "index_dms_on_send_user_id_and_receive_user_id", unique: true
     t.index ["send_user_id"], name: "index_dms_on_send_user_id"
-    t.index ["user_id"], name: "index_dms_on_user_id"
   end
 
   create_table "event_comments", force: :cascade do |t|
@@ -146,7 +136,5 @@ ActiveRecord::Schema.define(version: 2020_07_31_123653) do
   end
 
   add_foreign_key "children", "users"
-  add_foreign_key "dms", "dm_rooms"
-  add_foreign_key "dms", "users"
   add_foreign_key "tweets", "users"
 end
