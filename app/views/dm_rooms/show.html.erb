@@ -2,5 +2,11 @@
 <div id='dms' data-receive_user_id="<%= @receive_user.id %>">
   <%= render partial: "dm", collection: @dms, locals: { send_user: current_user, receive_user: @receive_user } %>
 </div>
-<%= label_tag :content, 'Say something:' %>
-<%= text_field_tag :content, nil, data: { behavior: 'dm_room_speaker' } %>
+<form class="form-inline">
+  <div class="form-group">
+    <%= label_tag :content, '送信:' %>
+    <%= text_area_tag :content, nil, data: { behavior: 'dm_room_speaker' }, class:"form-control", id: "dm-area", rows: 3; %>
+  </div>
+</form>
+<button id="dm-button" class="btn btn-primary">送信</button>
+</div>
