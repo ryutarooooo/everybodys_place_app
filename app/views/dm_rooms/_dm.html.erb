@@ -1,7 +1,25 @@
 <div class='dm'>
   <% if dm.send_user_id == send_user.id %>
-    <p><%= "#{send_user.name} : #{dm.content} :#{dm.created_at}" %></p>
+    <div class="balloon6">
+      <div class="faceicon-right">
+        <%= "#{send_user.name}" %>
+      </div>
+      <div class="mycomment">
+        <p><%= "#{dm.content}" %><br>
+          <%= "#{dm.created_at}" %></p>
+      </div>
+    </div>
   <% else %>
-    <p><%= "#{receive_user.name} : #{dm.content} :#{dm.created_at}" %></p>
+    <div class="balloon6">
+      <div class="faceicon-left">
+        <%= "#{receive_user.name}" %>
+      </div>
+      <div class="chatting">
+        <div class="says">
+          <p><%= "#{dm.content}" %><br>
+            <%= "#{dm.created_at}" %></p>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>
