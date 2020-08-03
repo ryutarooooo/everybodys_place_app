@@ -21,8 +21,9 @@ class EventEntriesController < ApplicationController
   end
 
   def check_capacity
-    if event.event_entries_count >= event.count
-      redirect_to event
+    event = Event.find(params[:event_id])
+    if event.event_entries.count >= event.count
+      redirect_to event, alert: "満員の為、受付は終了しました。"
     end
   end
 end

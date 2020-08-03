@@ -1,3 +1,4 @@
+<%= render "shared/flash_messages" %>
 <div class="box30">
   <span class="box-name"><%= "主催者:#{@event.user.name}" %></span>
   <div class=event-left>
@@ -19,11 +20,9 @@
     <% if capacity > 0 %>
       <p><%="残り募集人数:#{capacity}"%></p>
       <% if @event_entries_event_ids.include?(@event.id) %>
-        <!-- いいね!済み -->
-        <%= link_to '参加する', event_event_entries_path(@event), method: :delete %>
+        <%= link_to '参加申し込み完了', event_event_entries_path(@event), method: :delete %>
       <% else %>
-        <!-- いいね!していない -->
-        <%= link_to '参加申し込み完了', event_event_entries_path(@event), method: :post %>
+        <%= link_to '参加する', event_event_entries_path(@event), method: :post %>
       <% end %>
     <% else %>
       <p><%= "満員になりました" %></p>
