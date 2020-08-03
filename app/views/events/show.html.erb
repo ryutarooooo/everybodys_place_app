@@ -1,17 +1,15 @@
 <div class="box30">
-  <span class="box-name"><%= @event.user.name %></span>
+  <span class="box-name"><%= "主催者:#{@event.user.name}" %></span>
   <div class=event-left>
     <h3><%= "---#{@event.name}---" %></h3>
     <%= @event.prefecture %>
     <%= @event.place %>
     <br>
-    <%= "・#{@event.title}" %>
-    <br>
     <%= "内容: #{@event.content}" %>
     <br>
-    <%= "開始時間: #{@event.start_time}" %>
+    <%= "開始時間: #{l @event.start_time}" %>
     <br>
-    <%= "終了時間: #{@event.end_time}" %>
+    <%= "終了時間: #{l @event.end_time}" %>
     <br>
     <%="参加費用:#{@event.price}円"%>
     <br>
@@ -22,7 +20,7 @@
       <p><%="残り募集人数:#{capacity}"%></p>
       <% if @event_entries_event_ids.include?(@event.id) %>
         <!-- いいね!済み -->
-        <%= link_to '参加しますか', event_event_entries_path(@event), method: :delete %>
+        <%= link_to '参加する', event_event_entries_path(@event), method: :delete %>
       <% else %>
         <!-- いいね!していない -->
         <%= link_to '参加申し込み完了', event_event_entries_path(@event), method: :post %>
@@ -37,7 +35,7 @@
       <% if @event.user == current_user %>
         <%= link_to "削除",event_path(@event), method: :delete, data: { confirm: "削除しますか？"} %>
         <%= link_to "編集", edit_event_path(@event) %>
-        <%= "参加者一覧" %>
+        <p><%= "参加者一覧--#{@event.event_entries.count}人" %></p>
         <% @event.event_entries_users.each do |user|%>
           <%= link_to user.name, user %>
         <% end %>

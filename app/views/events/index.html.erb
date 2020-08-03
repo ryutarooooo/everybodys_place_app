@@ -1,13 +1,12 @@
 <h1>イベント</h1>
+<%= link_to "イベントを開催する",new_event_path %>
 <% @events.each do |event| %>
   <div class="box30">
-    <span class="box-name"><%= event.user.name %></span>
+    <span class="box-name"><%= "主催者:#{event.user.name}" %></span>
     <a href="/events/<%= event.id %>" class="event-left">
       <h3><%= "---#{event.name}---" %></h3>
       <%= event.prefecture %>
       <%= event.place %>
-      <br>
-      <%= "・#{event.title}" %>
       <p class = "current-event">
         <% if event.user == current_user %>
           <%= link_to "削除",event_path(event), method: :delete, data: { confirm: "削除しますか？"} %>
