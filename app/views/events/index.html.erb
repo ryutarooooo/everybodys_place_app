@@ -1,12 +1,16 @@
 <h1>イベント</h1>
 <%= link_to "イベントを開催する",new_event_path %>
+<form class="mb-3 search-form mx-auto">
+  <i class="fa fa-search search-icon" title="Search"></i>
+  <input type="text" id="search-text" class="form-control search-text" placeholder="県で検索する" aria-label="Username" aria-describedby="search-form">
+</form>
 <% @events.each do |event| %>
   <div class="box30">
     <span class="box-name"><%= "主催者:#{event.user.name}" %></span>
     <a href="/events/<%= event.id %>" class="event-left">
       <h3><%= "---#{event.name}---" %></h3>
-      <%= event.prefecture %>
-      <%= event.place %>
+      <p class="prefecture"><%= event.prefecture %></p>
+      <p><%= event.place %></p>
       <p class = "current-event">
         <% if event.user == current_user %>
           <%= link_to "削除",event_path(event), method: :delete, data: { confirm: "削除しますか？"} %>

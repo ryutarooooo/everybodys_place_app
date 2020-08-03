@@ -35,4 +35,23 @@ document.addEventListener("turbolinks:load", () => {
     minDate: "today",
     dateFormat: "Y-m-d H:i",
   })
-})
+
+  const searchWord = function () {
+    let searchText = $(this).val().toLowerCase(),
+      targetText;
+
+    $('p.prefecture').each(function () {
+      targetText = $(this).text().toLowerCase();
+
+      if (targetText.indexOf(searchText) != -1) {
+
+        $(this).parents('div.box30').removeClass('d-none');
+      } else {
+        $(this).parents('div.box30').addClass('d-none');
+      }
+    });
+  };
+
+  // searchWordの実行
+  $('#search-text').on('input', searchWord);
+});
