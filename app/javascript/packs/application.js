@@ -11,3 +11,9 @@ require("channels")
 require("bootstrap/dist/js/bootstrap")
 require("@fortawesome/fontawesome-free/js/all")
 require('jquery');
+import moment from 'moment'
+import 'moment/locale/ja'
+
+// moment動作確認
+// moment.locale('ja')
+// console.log(moment().format('M月D日（dd）'))
