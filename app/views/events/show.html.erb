@@ -37,6 +37,10 @@
       <% if @event.user == current_user %>
         <%= link_to "削除",event_path(@event), method: :delete, data: { confirm: "削除しますか？"} %>
         <%= link_to "編集", edit_event_path(@event) %>
+        <%= "参加者一覧" %>
+        <% @event.event_entries_users.each do |user|%>
+          <%= link_to user.name, user %>
+        <% end %>
       <% else %>
       <% end %>
       <p class = "current-event">
