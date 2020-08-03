@@ -9,6 +9,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    # ユーザーが「いいね！」した全てのメッセージidの配列
     @event_entries_event_ids = current_user.event_entries.pluck(:event_id)
     @event_comment = EventComment.new
   end
