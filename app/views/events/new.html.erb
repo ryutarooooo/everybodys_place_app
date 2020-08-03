@@ -1,3 +1,6 @@
+<p class="my-4">フォームをクリックしたときに，青色の帯のカレンダーが出れば「flatpickr」の導入はOKです</p>
+<input id="date-form" type="text" placeholder="日付を設定" readonly>
+​
 <%= render "shared/flash_messages" %>
 <%= form_with model: @event, local: true do |form| %>
   <div class="container mw-sm">
@@ -9,9 +12,9 @@
       <%= form.label :place, "場所(県以降)" %>
       <%= form.text_field :place, class: "form-control" %>
       <%= form.label :start_time, "何時から" %>
-      <%= form.text_field :start_time, class: "form-control datetimepicker-input", id: "start_time", data: {toggle: "datetimepicker", target: "#start_time"} %>
+      <%= form.text_field :start_time, class: "form-control", id: "start-time" %>
       <%= form.label :end_time, "何時まで" %>
-      <%= form.text_field :end_time, class: "form-control datepicker" %>
+      <%= form.text_field :end_time, class: "form-control", id: "end-time" %>
       <%= form.label :content, "概要" %>
       <%= form.text_area :content, class: "form-control", rows: 10  %>
       <%= form.label :count, "応募人数" %>
