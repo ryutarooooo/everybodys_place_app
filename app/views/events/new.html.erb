@@ -8,6 +8,10 @@
       <%= form.text_field :prefecture, class: "form-control"  %>
       <%= form.label :place, "場所(県以降)" %>
       <%= form.text_field :place, class: "form-control" %>
+      <%= form.label :start_time, "何時から" %>
+      <%= form.text_field :start_time, class: "form-control datetimepicker-input", id: "start_time", data: {toggle: "datetimepicker", target: "#start_time"} %>
+      <%= form.label :end_time, "何時まで" %>
+      <%= form.text_field :end_time, class: "form-control datepicker" %>
       <%= form.label :content, "概要" %>
       <%= form.text_area :content, class: "form-control", rows: 10  %>
       <%= form.label :count, "応募人数" %>
