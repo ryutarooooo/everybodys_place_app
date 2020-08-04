@@ -1,6 +1,10 @@
 class DmRoomsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @dms = current_user.passive_dms
+  end
+
   def show
     @receive_user = User.find(params[:id])
     receive_dms = Dm.where(send_user_id: @receive_user.id, receive_user_id: current_user.id)

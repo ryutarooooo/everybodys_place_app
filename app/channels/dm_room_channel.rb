@@ -5,11 +5,9 @@ class DmRoomChannel < ApplicationCable::Channel
   end
 
   def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
   end
 
   def speak(data)
-    binding.pry
     Dm.create! content: data["dm"], send_user_id: current_user.id, receive_user_id: params["receive_user_id"]
   end
 end
