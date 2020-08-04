@@ -1,5 +1,15 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <% if user_signed_in? %>
+      <button type="button" class="btn btn-white" data-toggle="modal" data-target="#exampleModalLong">
+        <% if @notification_count > 0 %>
+          <i class="fas fa-bell" style="color: gold"ode></i>
+          <%= @notification_count %>
+        <% else %>
+          <i class="fas fa-bell"></i>
+        <% end %>
+      </button>
+    <% end %>
     <%= link_to "コミュニティー", root_path, class: 'navbar-brand' %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -42,7 +52,32 @@
               <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
             </li>
           <% end %>
-        </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<% if user_signed_in? %>
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <% @notification_dms.each do |dm| %>
+            <p><%= link_to "#{dm.send_user.name}さんからDMが届いています", dm_room_path(dm.send_user), data: {"turbolinks": false} %><%= dm.created_at.strftime('%m/%d') %></p>
+            <Hr Width="100%">
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
       </div>
-    </nav>
-  </header>
+    </div>
+  </div>
+<% end %>

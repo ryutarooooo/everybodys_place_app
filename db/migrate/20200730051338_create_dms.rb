@@ -4,6 +4,7 @@ class CreateDms < ActiveRecord::Migration[6.0]
       t.integer :send_user_id
       t.integer :receive_user_id
       t.text :content
+      t.boolean :notification, default: true, null: false
 
       t.timestamps
     end
