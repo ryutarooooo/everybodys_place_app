@@ -3,6 +3,11 @@ class DmRoomsController < ApplicationController
 
   def show
     @receive_user = User.find(params[:id])
-    @dms = Dm.where(send_user_id: current_user.id, receive_user_id: @receive_user.id).or(Dm.where(send_user_id: @receive_user.id, receive_user_id: current_user.id)).order(id: :asc)
+    receive_dms = Dm.where(send_user_id: @receive_user.id, receive_user_id: current_user.id)
+    receive_dms.each do |notification_dm|
+      notification_dm.update_attributes(notification: false)
+    end
+    notification
+    @dms = Dm.where(send_user_id: current_user.id, receive_user_id: @receive_user.id).or(receive_dms).order(id: :asc)
   end
 end

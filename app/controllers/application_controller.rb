@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
 
   def notification
     if user_signed_in?
-      @dms = Dm.where(receive_user_id: current_user.id).where()
+      @notification_dms = current_user.passive_dms.where(notification: true)
+      @notification_count = @notification_dms.count
     end
   end
 end
