@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_051338) do
     t.integer "send_user_id"
     t.integer "receive_user_id"
     t.text "content"
+    t.boolean "notification", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["receive_user_id"], name: "index_dms_on_receive_user_id"
