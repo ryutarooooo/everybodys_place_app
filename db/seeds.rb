@@ -28,25 +28,12 @@ dm1 = Dm.create!(send_user_id: user1.id, receive_user_id: user2.id, content: "a"
 dm2 = Dm.create!(send_user_id: user1.id, receive_user_id: user3.id, content: "b")
 dm3 = Dm.create!(send_user_id: user3.id, receive_user_id: user1.id, content: "c")
 
-movie45 = Movie.create!(title: "", url: "youtube.com/watch?v=j3oPs2CJ_6I&feature=emb_rel_pause")
-movie5 = Movie.create!(title: "", url: "https://www.youtube.com/watch?v=j3oPs2CJ_6I&feature=emb_rel_pause")
-movie6 = Movie.create!(title: "", url: "https://www.youtube.com/watch?v=j3oPs2CJ_6I&feature=emb_rel_pause")
-movie7 = Movie.create!(title: "", url: "https://www.youtube.com/watch?v=j3oPs2CJ_6I&feature=emb_rel_pause")
-movie8 = Movie.create!(title: "", url: "https://www.youtube.com/watch?v=j3oPs2CJ_6I&feature=emb_rel_pause")
-movie9 = Movie.create!(title: "", url: "https://www.youtube.com/embed/x_KeaEUr3jo")
-movie10 = Movie.create!(title: "", url: "https://www.youtube.com/embed/EAjXnT0f5zk")
-movie11 = Movie.create!(title: "", url: "https://www.youtube.com/embed/yjhUDrjoJ5M")
-movie12 = Movie.create!(title: "", url: "https://www.youtube.com/embed/Outcx4StSyU")
-movie13 = Movie.create!(title: "", url: "https://www.youtube.com/embed/DDBiKpcvZp0")
-movie14 = Movie.create!(title: "", url: "https://www.youtube.com/embed/wvkK06fdR3Q")
-movie15 = Movie.create!(title: "", url: "https://www.youtube.com/embed/O6tARRY81xM")
-movie16 = Movie.create!(title: "", url: "https://www.youtube.com/embed/R4GYLo9S7vQ")
-movie17 = Movie.create!(title: "", url: "https://www.youtube.com/embed/cdz-cs_kYto")
-movie18 = Movie.create!(title: "", url: "https://www.youtube.com/embed/JispFS6zeDw")
-movie19 = Movie.create!(title: "", url: "https://www.youtube.com/embed/FIfbOSy1Bzg")
-movie20 = Movie.create!(title: "", url: "https://www.youtube.com/embed/BVv2JNnkKfU")
-movie21 = Movie.create!(title: "", url: "https://www.youtube.com/embed/TFrYp4J6KLY")
-movie22 = Movie.create!(title: "", url: "https://www.youtube.com/embed/U3yqlU7HGnk")
-movie23 = Movie.create!(title: "", url: "https://www.youtube.com/embed/SOLT-5evKQQ")
+movie1 = Movie.create!(title: "不登校経験6年の先輩が、皆さんの質問に答えます！", url: "https://youtu.be/PBMmwJVngwo", category: "other")
+
+movie2 = Movie.create!(title: "元不登校の僕が「周りの目」「悪口を言う人」から乗り越えた方法", url: "https://youtu.be/aOrkTyllAj4", category: "school")
+
+movie3 = Movie.create!(title: "不登校の子供たちがありのままの自分を表現できる居場所を作りたい：コラボ配信", url: "https://youtu.be/6-m9OtoxRLE", category: "school")
+
+movie4 = Movie.create!(title: "不登校で義務教育6年間勉強をしていなかった僕がたった1カ月の猛勉強で定時制高校に合格した話", url: "https://youtu.be/S_qcc8Tv7Yk", category: "test")
 
 puts "成功しました"
