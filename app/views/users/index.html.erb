@@ -1,19 +1,16 @@
 <h1>ユーザー一覧</h1>
-<div class="user-index">
-  <% @users.each do |user| %>
-    <div class="hover-2">
-      <a href="/users/<%= user.id %>" class="card">
-        <div>
-          <div><%= image_tag user.profile_image.url,class:"user_image" %></div>
-        </div>
-        <div class="card-body">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"><%= "名前 : #{user.name}" %></li>
-            <li class="list-group-item"><%= "年齢 : #{user.age}" %></li>
-            <li class="list-group-item"><%= "出身地 : #{user.place}" %></li>
-          </ul>
-        </div>
-      </a>
-    </div>
-  <% end %>
-</div>
+<% @users.each do |user| %>
+  <a href="/users/<%= user.id %>">
+    <article>
+      <figure>
+        <img src=<%= user.profile_image %> alt="サムネイル画像">
+      </figure>
+      <div class="text_content">
+        <p class="text_date"><%= user.place %></p>
+        <h2><%= user.name %></h2>
+        <p class="text_excerpt"><%= truncate(user.content, length: 20)%></p>
+      </div>
+    </article>
+  </a>
+<% end %>
+<%= paginate @users %>

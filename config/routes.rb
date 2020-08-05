@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   resources :dm_rooms, only: %i[show index]
 
   resources :movies, only: [:index]
+
+  resources :demands, only: [:index]
 end

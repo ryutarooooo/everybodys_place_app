@@ -560,3 +560,35 @@ svg {
 ul.pagination {
   justify-content: center;
 }
+
+
+article {
+  overflow: hidden;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px #999;
+}
+
+article figure {
+  float: left;
+  width: 100px;
+  height: 100px;
+}
+
+article figure img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+article .text_content {
+  float: right;
+  margin-left: -120px;
+  width: 100%;
+}
+
+article .text_content h2,
+article .text_content p {
+  margin-left: 120px;
+}

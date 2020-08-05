@@ -1,8 +1,9 @@
 class TweetsController < ApplicationController
   before_action :correct_user, only: %i[edit update destroy]
+  PER = 5
 
   def index
-    @tweets = Tweet.includes(:user).order(updated_at: "desc")
+    @tweets = Tweet.includes(:user).order(updated_at: "desc").page(params[:page]).per(PER)
     @favorite_tweet_ids = current_user.favorites.pluck(:tweet_id)
   end
 

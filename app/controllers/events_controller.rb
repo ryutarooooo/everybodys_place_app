@@ -1,9 +1,10 @@
 class EventsController < ApplicationController
   before_action :correct_user, only: %i[edit update destroy]
+  PER = 8
 
   def index
     range = Date.current..Float::INFINITY
-    @events = Event.where(end_time: range).includes(:user)
+    @events = Event.where(end_time: range).includes(:user).page(params[:page]).per(PER)
     @event_entries_event_ids = current_user.event_entries.pluck(:event_id)
   end
 
