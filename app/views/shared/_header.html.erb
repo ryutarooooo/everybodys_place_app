@@ -38,8 +38,19 @@
             <li class="nav-item ">
               <%= link_to 'イベント', events_path, class: 'nav-link' %>
             </li>
-            <li class="nav-item ">
-              <%= link_to '動画', movies_path, class: 'nav-link' %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                動画
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "・全動画", movies_path, class: "nav-item nav-link active font-weight-bold" %>
+                <%= link_to "・受験", movies_path(category: "test"), class: "nav-item nav-link active" %>
+                <%= link_to "・学校", movies_path(category: "school"), class: "nav-item nav-link active" %>
+                <%= link_to "・ゲーム", movies_path(category: "game"), class: "nav-item nav-link active" %>
+                <%= link_to "・夫婦関係", movies_path(category: "couple"), class: "nav-item nav-link active" %>
+                <%= link_to "・子供との会話", movies_path(category: "children"), class: "nav-item nav-link active" %>
+                <%= link_to "・その他", movies_path(category: "other"), class: "nav-item nav-link active" %>
+              </div>
             </li>
             <li class="nav-item ">
               <%= link_to 'ワクワクBOX', events_path, class: 'nav-link' %>
