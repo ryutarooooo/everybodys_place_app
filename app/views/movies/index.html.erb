@@ -1,0 +1,24 @@
+<div id="container" class="">
+  <div class="container-fluid">
+    <h1>動画</h1>
+    <div class="row">
+      <% @movies.each do |movie| %>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card border-dark mb-3">
+            <div class="card-header p-0">
+              <div class="embed-responsive embed-responsive-16by9">
+                <%= movie(movie.url)%>
+              </div>
+            </div>
+            <div class="card-body text-dark movie-body">
+              <p class="card-text movie-title">
+                <%= movie.title %>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= paginate @movies %>
