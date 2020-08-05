@@ -46,21 +46,6 @@ ActiveRecord::Schema.define(version: 2020_08_05_062900) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "children", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.integer "position", null: false
-    t.string "name"
-    t.integer "age"
-    t.integer "academic_year"
-    t.string "gender"
-    t.string "truancy_reason"
-    t.text "current_status"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id", "position"], name: "index_children_on_user_id_and_position", unique: true
-    t.index ["user_id"], name: "index_children_on_user_id"
-  end
-
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "tweet_id", null: false
@@ -124,9 +109,9 @@ ActiveRecord::Schema.define(version: 2020_08_05_062900) do
     t.string "title"
     t.text "url"
     t.text "content"
+    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "category"
   end
 
   create_table "tweets", force: :cascade do |t|
@@ -141,15 +126,19 @@ ActiveRecord::Schema.define(version: 2020_08_05_062900) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.string "child_name"
     t.string "profile_image"
     t.integer "age"
+    t.integer "child_age"
     t.string "gender"
+    t.string "child_gender"
     t.string "place"
     t.string "hobby"
     t.text "using_reason"
     t.text "trouble"
     t.text "hope"
     t.text "content"
+    t.string "truancy_reason"
     t.boolean "flag", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -176,6 +165,5 @@ ActiveRecord::Schema.define(version: 2020_08_05_062900) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
-  add_foreign_key "children", "users"
   add_foreign_key "tweets", "users"
 end
