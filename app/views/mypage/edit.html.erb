@@ -15,14 +15,6 @@
   <div class="container mw-sm">
     <div class="row">
       <div class="col-12 col-sm-6">
-        <% if current_user.profile_image.presence %>
-          <div><%= image_tag current_user.profile_image.url, class: "user_image" %></div>
-          <%= form.label :profile_image, "変更する" %>
-          <%= form.file_field :profile_image, accept: "image/png,image/jpeg,image/gif" %>
-        <% else %>
-          <%= form.label :profile_image, "ユーザー写真" %>
-          <%= form.file_field :profile_image, accept: "image/png,image/jpeg,image/gif" %>
-        <% end %>
       </div>
       <div class="col-12 col-sm-6">
         <div class="form-group">

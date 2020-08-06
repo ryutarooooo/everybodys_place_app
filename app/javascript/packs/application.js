@@ -158,7 +158,7 @@ document.addEventListener("turbolinks:load", () => {
           location.reload();
         },
         error: function (res) {
-          console.error('Upload error');
+          console.error('画像の投稿に失敗しました');
         }
       });
       // S3にアップロードするため画質を50%落とす
