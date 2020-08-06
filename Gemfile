@@ -43,6 +43,8 @@ gem 'devise-bootstrap-views', '~> 1.0'
 gem 'kaminari'
 
 gem 'annotate'
+#minimagicより上に配置
+gem 'fog-aws'
 
 gem 'mini_magick'
 
