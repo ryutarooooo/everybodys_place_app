@@ -1,4 +1,16 @@
 <%= render "shared/flash_messages" %>
+<form>
+  <%= hidden_field_tag "user_id", current_user.id %>
+  <%= file_field_tag 'user[profile_image]' %>
+  <%= button_tag :submit, :id => "submitBtn" %>
+  <% if current_user.persisted? && current_user.profile_image? %>
+    <div id="crop_area_box">
+      <%= image_tag current_user.profile_image.url, :id => "crop_profile_image", :html => [:width => "600px"] %>
+    </div>
+  <% else %>
+    <div id="crop_area_box"><img id="crop_image" /></div>
+  <% end %>
+</form>
 <%= form_with model: current_user, url: { action: :update }, local: true do |form| %>
   <div class="container mw-sm">
     <div class="row">
@@ -66,3 +78,11 @@
     </div>
   </div>
 <% end %>
+<style>
+  #crop_area_box {
+    display: block;
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+  }
+</style>
