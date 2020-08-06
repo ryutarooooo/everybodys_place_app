@@ -1,3 +1,15 @@
+<div>
+  <img id="image" src="./images/fallback/default.png">
+</div>
+<style>
+  img {
+    display: block;
+  
+    /* This rule is very important, please don't ignore this */
+    max-width: 100%;
+  }
+</style>
+<script></script>
 <h1>ユーザー一覧</h1>
 <% @users.each do |user| %>
   <a href="/users/<%= user.id %>">
