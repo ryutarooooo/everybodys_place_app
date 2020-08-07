@@ -145,25 +145,18 @@ document.addEventListener("turbolinks:load", () => {
       var formData = new FormData();
       // `user[profile_image]` は `user` modelに定義した `mount_uploader :profileImage, profileImageUploader` のコト
       formData.append('user[profile_image]', fileOfBlob);
-      // userのID取得
-      const user_id = $('#user_id').val();
-      $.ajax('/mypage', {
-        method: "PATCH", // POSTの方が良いのかな？
+      $.ajax({
+        url: '/mypage',
+        type: "patch", // POSTの方が良いのかな？
         data: formData,
         processData: false, // 余計な事はせず、そのままSUBMITする設定？
         contentType: false,
-        success: function (res) {
-          // DOM操作にしたほうがいいのかな？その場合、アップロード後に実行するなどのポーリング処理的なサムシングが必要になりそう・・・
-          // なので、とりあえず簡単に`location.reload`しちゃう
-          debugger
-          location.reload();
-        },
-        error: function (res) {
-          console.error('画像の投稿に失敗しました');
-        }
-      });
-      // S3にアップロードするため画質を50%落とす
+      })
+      // .done(
+      //   () => alert("success")
+      // ).fail(
+      //   () => alert("error")
+      // );
     });
   });
-
 });
