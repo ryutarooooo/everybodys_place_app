@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
+// require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
@@ -21,8 +21,7 @@ import Cropper from 'cropperjs';
 
 
 
-document.addEventListener("turbolinks:load", () => {
-
+window.addEventListener('DOMContentLoaded', () => {
   flatpickr.localize(flatpickr.l10ns.ja)
   // カレンダーの表示
   flatpickr('#start-time', {
