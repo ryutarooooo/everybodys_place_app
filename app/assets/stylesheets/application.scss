@@ -600,6 +600,12 @@ article .text_content p {
   margin-left: 120px;
 }
 
-#avatar {
+.avatar-image {
   margin-top: 28px
+}
+
+@media (max-width: 767px) {
+  .avatar-image {
+    text-align: center;
+  }
 }

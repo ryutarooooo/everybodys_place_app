@@ -2,10 +2,13 @@
 <div class="container mw-sm">
   <div class="row">
     <div class="col-12 col-sm-6">
-      <label class="label" data-toggle="tooltip" title="Change your avatar">
-        <img class="rounded" id="avatar" src="<%= current_user.profile_image %>" alt="avatar">
-        <input type="file" class="sr-only" id="input" name="image" accept="image/*">
-      </label>
+      <div class="avatar-image">
+        <label class="label" data-toggle="tooltip" title="Change your avatar">
+          <img class="rounded" id="avatar" src="<%= current_user.profile_image %>" alt="avatar">
+          <input type="file" class="sr-only" id="input" name="image" accept="image/*">
+        </label>
+      </div>
+      <p>画像をタッチすると写真を投稿できます</p>
       <div class="alert" role="alert"></div>
       <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
