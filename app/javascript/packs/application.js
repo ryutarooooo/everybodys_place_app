@@ -70,7 +70,6 @@ document.addEventListener("turbolinks:load", () => {
     if (file.type.indexOf('image') < 0) {
       return false;
     }
-    debugger
     // ファイル読み込みが完了した際のイベント登録
     reader.onload = (function (file) {
       return function (event) {
@@ -103,8 +102,8 @@ document.addEventListener("turbolinks:load", () => {
       cropBoxMovable: true,
       cropBoxResizable: false,
       toggleDragModeOnDblclick: false,
-      minCropBoxWidth: 300,
-      minCropBoxHeight: 300,
+      minCropBoxWidth: 150,
+      minCropBoxHeight: 150,
       ready: function () {
         var croppable = true;
       }
@@ -156,6 +155,7 @@ document.addEventListener("turbolinks:load", () => {
         success: function (res) {
           // DOM操作にしたほうがいいのかな？その場合、アップロード後に実行するなどのポーリング処理的なサムシングが必要になりそう・・・
           // なので、とりあえず簡単に`location.reload`しちゃう
+          debugger
           location.reload();
         },
         error: function (res) {

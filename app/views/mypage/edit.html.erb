@@ -1,20 +1,41 @@
 <%= render "shared/flash_messages" %>
-<form>
-  <%= hidden_field_tag "user_id", current_user.id %>
-  <%= file_field_tag 'user[profile_image]' %>
-  <%= button_tag :submit, :id => "submitBtn" %>
-  <% if current_user.persisted? && current_user.profile_image? %>
-    <div id="crop_area_box">
-      <%= image_tag current_user.profile_image.url, :id => "crop_profile_image", :html => [:width => "600px"] %>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <%= hidden_field_tag "user_id", current_user.id %>
+          <%= file_field_tag 'user[profile_image]' %>
+          <%= button_tag :submit, :id => "submitBtn" %>
+          <% if current_user.persisted? && current_user.profile_image? %>
+            <div id="crop_area_box">
+              <%= image_tag current_user.profile_image.url, :id => "crop_profile_image", :html => [:width => "600px"] %>
+            </div>
+          <% else %>
+            <div id="crop_area_box"><img id="crop_image" /></div>
+          <% end %>
+        </form>
+      </div>
     </div>
-  <% else %>
-    <div id="crop_area_box"><img id="crop_image" /></div>
-  <% end %>
-</form>
+  </div>
+</div>
+<!-- Cropper.jsは、当該ページ個別に読み込む -->
 <%= form_with model: current_user, url: { action: :update }, local: true do |form| %>
   <div class="container mw-sm">
     <div class="row">
       <div class="col-12 col-sm-6">
+        <%= image_tag current_user.profile_image.url, class:"user_image" %>
       </div>
       <div class="col-12 col-sm-6">
         <div class="form-group">
@@ -73,8 +94,8 @@
 <style>
   #crop_area_box {
     display: block;
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     overflow: hidden;
   }
 </style>
