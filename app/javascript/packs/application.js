@@ -16,29 +16,14 @@ require('flatpickr')
 require('flatpickr/dist/l10n/ja')
 import moment from 'moment'
 import 'moment/locale/ja'
-
-// moment動作確認
-// moment.locale('ja')
-// console.log(moment().format('M月D日（dd）'))
-
-// cropper 画像切り抜き
+require("cropper/dist/cropper")
 import Cropper from 'cropperjs';
 
-document.addEventListener("turbolinks:load", () => {
-  const image = document.getElementById('image');
-  const cropper = new Cropper(image, {
-    aspectRatio: 16 / 9,
-    crop(event) {
-      console.log(event.detail.x);
-      console.log(event.detail.y);
-      console.log(event.detail.width);
-      console.log(event.detail.height);
-      console.log(event.detail.rotate);
-      console.log(event.detail.scaleX);
-      console.log(event.detail.scaleY);
-    },
-  });
 
+
+document.addEventListener("turbolinks:load", () => {
+
+  flatpickr.localize(flatpickr.l10ns.ja)
   // カレンダーの表示
   flatpickr('#start-time', {
     disableMobile: true,
@@ -71,4 +56,107 @@ document.addEventListener("turbolinks:load", () => {
 
   // searchWordの実行
   $('#search-text').on('input', searchWord);
+
+
+
+  var fileName;
+  // 画像ファイル選択後のプレビュー処理
+  $('form').on('change', 'input[type="file"]', function (event) {
+    var file = event.target.files[0];
+    fileName = file.name;
+    var reader = new FileReader();
+    var $crop_area_box = $('#crop_area_box');
+    // 画像ファイル以外の場合は何もしない
+    if (file.type.indexOf('image') < 0) {
+      return false;
+    }
+    // ファイル読み込みが完了した際のイベント登録
+    reader.onload = (function (file) {
+      return function (event) {
+
+        //既存のプレビューを削除
+        $crop_area_box.empty();
+        // .prevewの領域の中にロードした画像を表示するprofile_imageタグを追加
+        $crop_area_box.append($('<img>').attr({
+          src: event.target.result,
+          id: "crop_profile_image",
+          title: file.name
+        }));
+        // プレビュー処理に対して、クロップ出来る処理を初期化設定
+        initCrop();
+      };
+    })(file);
+    reader.readAsDataURL(file);
+  });
+
+  var cropper;
+
+  function initCrop() {
+    cropper = new Cropper(crop_profile_image, {
+      dragMode: 'move', // 画像を動かす設定
+      aspectRatio: 1 / 1, // 正方形やで！
+      restore: false,
+      guides: false,
+      center: false,
+      highlight: false,
+      cropBoxMovable: true,
+      cropBoxResizable: false,
+      toggleDragModeOnDblclick: false,
+      minCropBoxWidth: 150,
+      minCropBoxHeight: 150,
+      ready: function () {
+        var croppable = true;
+      }
+    });
+    // 初回表示時
+    crop_profile_image.addEventListener('ready', function (e) {
+      cropping(e);
+    });
+    // 画像をドラッグした際の処理
+    crop_profile_image.addEventListener('cropend', function (e) {
+      cropping(e);
+    });
+    // 画像を拡大・縮小した際の処理
+    crop_profile_image.addEventListener('zoom', function (e) {
+      cropping(e);
+    });
+  }
+
+  // クロップ処理した画像をプレビュー領域に表示
+  var croppedCanvas;
+
+  function cropping(e) {
+    croppedCanvas = cropper.getCroppedCanvas({
+      width: 300,
+      height: 300,
+    });
+    // `$('<img>'{src: croppedCanvas.toDataURL()});` 的に書きたかったけど、jQuery力が足りず・・・
+    var croppedProfileImage = document.createElement('img');
+    croppedProfileImage.src = croppedCanvas.toDataURL();
+    // crop_preview.innerHTML = '';
+    // crop_preview.appendChild(croppedprofile_image);
+  }
+
+  // Submit時に実行するPOST処理
+  $('#submitBtn').on('click', function (event) {
+    // クロップ後のファイルをblobに変換し、AjaxでForm送信
+    croppedCanvas.toBlob(function (blob) {
+      const fileOfBlob = new File([blob], fileName);
+      var formData = new FormData();
+      // `user[profile_image]` は `user` modelに定義した `mount_uploader :profileImage, profileImageUploader` のコト
+      formData.append('user[profile_image]', fileOfBlob);
+      $.ajax({
+        url: '/mypage',
+        type: "patch", // POSTの方が良いのかな？
+        data: formData,
+        processData: false, // 余計な事はせず、そのままSUBMITする設定？
+        contentType: false,
+      })
+      // .done(
+      //   () => alert("success")
+      // ).fail(
+      //   () => alert("error")
+      // );
+    });
+  });
 });

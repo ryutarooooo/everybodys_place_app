@@ -12,6 +12,13 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 
 @import "cropper/dist/cropper";
 
+img {
+  display: block;
+
+  /* This rule is very important, please don't ignore this */
+  max-width: 100%;
+}
+
 .container-login {
   @extend .container-fluid;
   max-width: 576px;

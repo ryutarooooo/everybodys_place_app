@@ -44,12 +44,12 @@ dm1 = Dm.create!(send_user_id: user1.id, receive_user_id: user2.id, content: "a"
 dm2 = Dm.create!(send_user_id: user1.id, receive_user_id: user3.id, content: "b")
 dm3 = Dm.create!(send_user_id: user3.id, receive_user_id: user1.id, content: "c")
 
-# movie1 = Movie.create!(title: "不登校経験6年の先輩が、皆さんの質問に答えます！", url: "https://youtu.be/PBMmwJVngwo", category: "other")
+movie1 = Movie.create!(title: "不登校経験6年の先輩が、皆さんの質問に答えます！", url: "https://youtu.be/PBMmwJVngwo", category: "other")
 
-# movie2 = Movie.create!(title: "元不登校の僕が「周りの目」「悪口を言う人」から乗り越えた方法", url: "https://youtu.be/aOrkTyllAj4", category: "school")
+movie2 = Movie.create!(title: "元不登校の僕が「周りの目」「悪口を言う人」から乗り越えた方法", url: "https://youtu.be/aOrkTyllAj4", category: "school")
 
-# movie3 = Movie.create!(title: "不登校の子供たちがありのままの自分を表現できる居場所を作りたい：コラボ配信", url: "https://youtu.be/6-m9OtoxRLE", category: "school")
+movie3 = Movie.create!(title: "不登校の子供たちがありのままの自分を表現できる居場所を作りたい：コラボ配信", url: "https://youtu.be/6-m9OtoxRLE", category: "school")
 
-# movie4 = Movie.create!(title: "不登校で義務教育6年間勉強をしていなかった僕がたった1カ月の猛勉強で定時制高校に合格した話", url: "https://youtu.be/S_qcc8Tv7Yk", category: "test")
+movie4 = Movie.create!(title: "不登校で義務教育6年間勉強をしていなかった僕がたった1カ月の猛勉強で定時制高校に合格した話", url: "https://youtu.be/S_qcc8Tv7Yk", category: "test")
 
 puts "成功しました"
