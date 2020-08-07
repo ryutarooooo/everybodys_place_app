@@ -1,18 +1,20 @@
-<div class="user-title">
-  <h1>ユーザー一覧</h1>
+<div class="container mw-sm">
+  <div class="user-title">
+    <h1>ユーザー一覧</h1>
+  </div>
+  <% @users.each do |user| %>
+    <a href="/users/<%= user.id %>">
+      <article>
+        <figure>
+          <img src=<%= user.profile_image %> alt="サムネイル画像">
+        </figure>
+        <div class="text_content">
+          <p class="text_date"><%= user.place %></p>
+          <h2><%= user.name %></h2>
+          <p class="text_excerpt"><%= truncate(user.content, length: 20)%></p>
+        </div>
+      </article>
+    </a>
+  <% end %>
 </div>
-<% @users.each do |user| %>
-  <a href="/users/<%= user.id %>">
-    <article>
-      <figure>
-        <img src=<%= user.profile_image %> alt="サムネイル画像">
-      </figure>
-      <div class="text_content">
-        <p class="text_date"><%= user.place %></p>
-        <h2><%= user.name %></h2>
-        <p class="text_excerpt"><%= truncate(user.content, length: 20)%></p>
-      </div>
-    </article>
-  </a>
-<% end %>
 <%= paginate @users %>
