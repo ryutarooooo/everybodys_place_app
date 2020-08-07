@@ -155,7 +155,7 @@ document.addEventListener("turbolinks:load", () => {
 
             error: function () {
               avatar.src = initialAvatarURL;
-              $alert.show().addClass('alert-warning').text('保存に成功しました');
+              $alert.show().addClass('alert-warning').text('保存に失敗しました');
             },
 
             complete: function () {
