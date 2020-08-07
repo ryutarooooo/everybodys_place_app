@@ -17,7 +17,8 @@ class MypageController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :age, :child_name, :child_age, :place, :hobby, :using_reason, :trouble, :hope, :content)
+    params.require(:user).permit(:name, :age, :child_name, :gender, :child_age, :place, :hobby, :using_reason, :trouble,
+                                 :truancy_reason, :hope, :content)
   end
 
   def image_params
