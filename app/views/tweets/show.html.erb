@@ -11,11 +11,13 @@
   <div id="comments" data-tweet_id="<%= @tweet.id %>">
     <%= render @comments %>
   </div>
-  <form class="form-inline">
-    <div class="form-group">
-      <%= label_tag :content, 'コメント'  %>
-      <%= text_area_tag :content, nil, data: { behavior: 'tweet_speaker' }, class:"form-control", id: "comment-area", rows: 3; %>
-    </div>
-  </form>
-  <button id="comment-button" class="btn btn-primary">送信</button>
+  <div class="tweet-comment" >
+    <form class="form-inline">
+      <div class="form-group ">
+        <%= label_tag :content, 'コメント'  %>
+        <%= text_area_tag :content, nil, data: { behavior: 'tweet_speaker' }, class:"form-control", id: "comment-area", rows: 3; %>
+      </div>
+    </form>
+    <button id="comment-button" class="btn btn-primary">送信</button>
+  </div>
 </div>

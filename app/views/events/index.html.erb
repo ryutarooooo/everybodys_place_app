@@ -1,8 +1,10 @@
-<h1>イベント</h1>
-<%= link_to "イベントを開催する",new_event_path %>
-<form class="mb-3 search-form mx-auto">
-  <i class="fa fa-search search-icon" title="Search"></i>
-  <input type="text" id="search-text" class="form-control search-text" placeholder="県で検索する" aria-label="Username" aria-describedby="search-form">
+<div class="event-title">
+  <h1>イベント</h1>
+  <%= link_to "イベントを開催する",new_event_path %>
+  <form class="mb-3 search-form mx-auto">
+    <i class="fa fa-search search-icon" title="Search"></i>
+    <input type="text" id="search-text" class="form-control search-text" placeholder="県で検索する" aria-label="Username" aria-describedby="search-form">
+  </div>
 </form>
 <% @events.each do |event| %>
   <div class="box30">
