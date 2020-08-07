@@ -1,30 +1,39 @@
-<div class="card">
-  <div class="container mw-sm list-group-item">
-    <h5><%= "・#{@user.name}さんのプロフィール" %></h5>
-    <%= link_to "お話する", "/dm_rooms/#{@user.id}", data: {"turbolinks": false} %>
-    <div class="row">
-      <div class="col-12 col-sm-6">
-        <div><%= image_tag @user.profile_image.url,class:"user_image" %></div>
+<div class="container mw-sm">
+  <div class="card">
+    <div class="list-group-item">
+      <h5><%= "・#{@user.name}さんのプロフィール" %></h5>
+      <button type="button" class="btn btn-outline-primary"><%= link_to "お話する", "/dm_rooms/#{@user.id}", data: {"turbolinks": false} %></button>
+      <div class="row">
+        <div class="col-12 col-sm-6">
+          <div><%= image_tag @user.profile_image.url,class:"user_image" %></div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <ul class="list-group list-group-flush ">
+            <li class="list-group-item"><%= "出身地 : #{@user.place}" %></li>
+            <li class="list-group-item"><%= "名前 : #{@user.name}" %></li>
+            <li class="list-group-item"><%= "年齢 : #{@user.age}" %></li>
+            <li class="list-group-item"><%= "性別 : #{@user.gender}" %></li>
+            <li class="list-group-item"><%= "子供の名前(ニックネーム可) : #{@user.child_name}" %></li>
+            <li class="list-group-item"><%= "子供の年齢 : #{@user.child_age}" %></li>
+            <li class="list-group-item"><%= "趣味 : #{@user.hobby}" %></li>
+          </ul>
+        </div>
       </div>
-      <div class="col-12 col-sm-6">
-        <ul class="list-group list-group-flush ">
-          <li class="list-group-item"><%= "名前 : #{@user.name}" %></li>
-          <li class="list-group-item"><%= "年齢 : #{@user.age}" %></li>
-          <li class="list-group-item"><%= "出身 : #{@user.place}" %></li>
-          <li class="list-group-item"><%= "趣味 : #{@user.hobby}" %></li>
-          <li class="list-group-item"></li>
-        </ul>
-      </div>
+      <ul class="list-group list-group-flush ">
+        <li class="list-group-item">・最近悩んでる事<br>
+          <%= @user.trouble %></li>
+        <li class="list-group-item">・今後お子さんにどうなってほしいか
+          <br>
+          <%= @user.truancy_reason %></li>
+        <li class="list-group-item">・お子さんにどのような教育機関を提供したいか
+          <br>
+          <%= @user.using_reason %></li>
+        <li class="list-group-item">・こんな人のお話が聞きたい
+          <br>
+          <%= @user.content %></li>
+        <li class="list-group-item">・このコミュニティでやりたいこと<br>
+          <%= @user.hope %></li>
+      </ul>
     </div>
-    <ul class="list-group list-group-flush ">
-      <li class="list-group-item">---なぜ入会しようと思ったか---<br>
-        <%= @user.using_reason %></li>
-      <li class="list-group-item">---悩み事---<br>
-        <%= @user.trouble %></li>
-      <li class="list-group-item">---今後どうして行きたいか---<br>
-        <%= @user.content %></li>
-      <li class="list-group-item">---このコミュニティーで望むこと---<br>
-        <%= @user.hope %></li>
-    </ul>
   </div>
 </div>
