@@ -23,6 +23,7 @@ import Cropper from 'cropperjs';
 
 document.addEventListener("turbolinks:load", () => {
 
+  flatpickr.localize(flatpickr.l10ns.ja)
   // カレンダーの表示
   flatpickr('#start-time', {
     disableMobile: true,
