@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content).merge params.permit(:tweet_id)
+    params.require(:comment).permit(:content).merge params.permit(:tweet_id).merge
   end
 
   def correct_user

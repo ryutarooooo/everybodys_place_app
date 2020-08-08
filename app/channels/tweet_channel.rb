@@ -11,6 +11,7 @@ class TweetChannel < ApplicationCable::Channel
     current_user.comments.create!(
       content: data["comment"],
       tweet_id: params["tweet"],
+      mention_user_id: data["mention_user_id"],
     )
   end
 end

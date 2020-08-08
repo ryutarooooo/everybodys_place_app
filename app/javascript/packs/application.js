@@ -10,7 +10,7 @@ require("channels")
 
 require("bootstrap/dist/js/bootstrap")
 require("@fortawesome/fontawesome-free/js/all")
-require('jquery');
+
 // カレンダー
 require('flatpickr')
 require('flatpickr/dist/l10n/ja')
@@ -165,6 +165,27 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  const commentArea = document.getElementById("comment-area")
+  const mention = document.getElementById("mention")
+  document.querySelectorAll(".box-name").forEach(boxName => {
+    boxName.addEventListener("click", e => {
+      const name = e.target.innerText
+      const userId = e.target.dataset.user_id
+      mention.value = `@${name}`
+      commentArea.dataset.mention_user_id = userId
+    })
+  })
+
+
+
+
+
+
+
+
+
+
   // var fileName;
   // // 画像ファイル選択後のプレビュー処理
   // $('form').on('change', 'input[type="file"]', function (event) {

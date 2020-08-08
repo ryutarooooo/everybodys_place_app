@@ -2,6 +2,7 @@ import consumer from "./consumer"
 
 
 $(function () {
+
   const commentArea = document.getElementById("comment-area")
 
   if (commentArea) {
@@ -18,12 +19,22 @@ $(function () {
       },
 
       received: function (data) {
-        return $('#comments').append(data['comment']);
+        $('#comments').append(data['comment']);
+        const commentArea = document.getElementById("comment-area")
+        const mention = document.getElementById("mention")
+        const lastBox = document.querySelectorAll(".box-name")
+        lastBox[lastBox.length - 1].addEventListener("click", e => {
+          const name = e.target.innerText
+          const userId = e.target.dataset.user_id
+          mention.value = `@${name}`
+          commentArea.dataset.mention_user_id = userId
+        })
       },
 
-      speak: function (comment) {
+      speak: function (comment, mentionUserId) {
         return this.perform('speak', {
-          comment: comment
+          comment: comment,
+          mention_user_id: mentionUserId
         });
       }
     });
@@ -31,8 +42,11 @@ $(function () {
     const commentButton = document.getElementById("comment-button")
     commentButton.addEventListener("click", function () {
       let content = commentArea.value
-      tweetChannel.speak(content)
+      let mentionUserId = commentArea.dataset.mention_user_id
+      tweetChannel.speak(content, mentionUserId)
       commentArea.value = ''
+      mention.value = ''
+      commentArea.dataset.mention_user_id = ''
     })
   }
 });
