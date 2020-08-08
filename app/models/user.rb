@@ -23,4 +23,8 @@ class User < ApplicationRecord
                          dependent: :destroy
   has_many :send_dms, through: :active_dms, source: :receive_user
   has_many :receive_dms, through: :passive_dms, source: :send_user
+
+  has_many :passive_comments, class_name: "Comment",
+                              foreign_key: "mention_user_id",
+                              dependent: :destroy
 end
