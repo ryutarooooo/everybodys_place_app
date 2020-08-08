@@ -2,6 +2,7 @@ import consumer from "./consumer"
 
 
 $(function () {
+
   const commentArea = document.getElementById("comment-area")
 
   if (commentArea) {
@@ -21,9 +22,10 @@ $(function () {
         return $('#comments').append(data['comment']);
       },
 
-      speak: function (comment) {
+      speak: function (comment, mensionUserId) {
         return this.perform('speak', {
-          comment: comment
+          comment: comment,
+          mension_user_id: mensionUserId
         });
       }
     });
@@ -31,8 +33,11 @@ $(function () {
     const commentButton = document.getElementById("comment-button")
     commentButton.addEventListener("click", function () {
       let content = commentArea.value
-      tweetChannel.speak(content)
+      let mensionUserId = commentArea.dataset.mension_user_id
+      tweetChannel.speak(content, mensionUserId)
       commentArea.value = ''
+      mention.value = ''
+      commentArea.dataset.mension_user_id = ''
     })
   }
 });

@@ -166,14 +166,14 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const commentArea = document.getElementById("comment-area")
   const mension = document.getElementById("mention")
   document.querySelectorAll(".box-name").forEach(boxName => {
     boxName.addEventListener("click", e => {
       const name = e.target.innerText
       const userId = e.target.dataset.user_id
-      mension.value = `@${name}`;
-      
-
+      mension.value = `@${name}`
+      commentArea.dataset.mension_user_id = userId
     })
   })
 
