@@ -1,6 +1,6 @@
 <div class="mw-sm">
   <div class="box28">
-    <span class="box-name"><%= @tweet.user.name %></span>
+    <span class="box-name" data-user_id="<%= @tweet.user.id %>"><%= @tweet.user.name %></span>
     <div class="tweet-left">
       <h3><%= @tweet.title %></h3>
     </div>
@@ -12,10 +12,14 @@
     <%= render @comments %>
   </div>
   <div class="tweet-comment" >
-    <form class="form-inline">
-      <div class="form-group ">
+    <form>
+      <div class="form-group">
+        <label for="text5a">返信相手</label>
+        <input type="text" class="form-control mb-2" id="text5a" placeholder="返信相手の左上の名前をクリックして下ださい">
+      </div>
+      <div class="form-group">
         <%= label_tag :content, 'コメント'  %>
-        <%= text_area_tag :content, nil, data: { behavior: 'tweet_speaker' }, class:"form-control", id: "comment-area", rows: 3; %>
+        <%= text_area_tag :content, nil, data: { behavior: 'tweet_speaker' }, class: "form-control", id: "comment-area", rows: 3 %>
       </div>
     </form>
     <button id="comment-button" class="btn btn-primary">送信</button>
