@@ -166,7 +166,12 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  document.querySelectorAll(".box-name").forEach(boxName => {
+    boxName.addEventListener("click", e => {
+      debugger
 
+    })
+  })
 
 
 
