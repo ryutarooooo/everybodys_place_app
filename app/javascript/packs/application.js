@@ -166,9 +166,13 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const mension = document.getElementById("mention")
   document.querySelectorAll(".box-name").forEach(boxName => {
     boxName.addEventListener("click", e => {
-      debugger
+      const name = e.target.innerText
+      const userId = e.target.dataset.user_id
+      mension.value = `@${name}`;
+      
 
     })
   })
