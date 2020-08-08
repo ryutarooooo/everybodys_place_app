@@ -19,13 +19,22 @@ $(function () {
       },
 
       received: function (data) {
-        return $('#comments').append(data['comment']);
+        $('#comments').append(data['comment']);
+        const commentArea = document.getElementById("comment-area")
+        const mention = document.getElementById("mention")
+        const lastBox = document.querySelectorAll(".box-name")
+        lastBox[lastBox.length - 1].addEventListener("click", e => {
+          const name = e.target.innerText
+          const userId = e.target.dataset.user_id
+          mention.value = `@${name}`
+          commentArea.dataset.mention_user_id = userId
+        })
       },
 
-      speak: function (comment, mensionUserId) {
+      speak: function (comment, mentionUserId) {
         return this.perform('speak', {
           comment: comment,
-          mension_user_id: mensionUserId
+          mention_user_id: mentionUserId
         });
       }
     });
@@ -33,11 +42,11 @@ $(function () {
     const commentButton = document.getElementById("comment-button")
     commentButton.addEventListener("click", function () {
       let content = commentArea.value
-      let mensionUserId = commentArea.dataset.mension_user_id
-      tweetChannel.speak(content, mensionUserId)
+      let mentionUserId = commentArea.dataset.mention_user_id
+      tweetChannel.speak(content, mentionUserId)
       commentArea.value = ''
       mention.value = ''
-      commentArea.dataset.mension_user_id = ''
+      commentArea.dataset.mention_user_id = ''
     })
   }
 });

@@ -167,13 +167,13 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   const commentArea = document.getElementById("comment-area")
-  const mension = document.getElementById("mention")
+  const mention = document.getElementById("mention")
   document.querySelectorAll(".box-name").forEach(boxName => {
     boxName.addEventListener("click", e => {
       const name = e.target.innerText
       const userId = e.target.dataset.user_id
-      mension.value = `@${name}`
-      commentArea.dataset.mension_user_id = userId
+      mention.value = `@${name}`
+      commentArea.dataset.mention_user_id = userId
     })
   })
 

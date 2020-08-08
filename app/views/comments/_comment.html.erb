@@ -1,5 +1,8 @@
 <div class="box29">
-  <span class="box-name" data-user_id="<%= comment.user.id %>"><%= comment.user.name %></span><%= "に返信" %>
+  <span class="box-name" data-user_id="<%= comment.user.id %>"><%= comment.user.name %></span>
+  <% if comment.mention_user_id.present? %>
+    <%= "#{comment.mention_user.name}さんへの返信" %>
+  <% end %>
   <div class="tweet-left">
     <h3 class="comment_content"><%= simple_format (h comment.content) %></h3>
   </div>

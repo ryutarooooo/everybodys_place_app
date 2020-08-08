@@ -8,10 +8,10 @@ class TweetChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    binding.pry
     current_user.comments.create!(
       content: data["comment"],
       tweet_id: params["tweet"],
+      mention_user_id: data["mention_user_id"],
     )
   end
 end
