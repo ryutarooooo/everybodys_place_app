@@ -2,7 +2,6 @@
   <div class="card">
     <div class="list-group-item">
       <h5><%= "・#{@user.name}さんのプロフィール" %></h5>
-      <button type="button" class="btn btn-outline-primary"><%= link_to "お話する", "/dm_rooms/#{@user.id}", data: {"turbolinks": false} %></button>
       <div class="row">
         <div class="col-12 col-sm-6">
           <div><%= image_tag @user.profile_image.url,class:"user_image" %></div>
@@ -16,6 +15,7 @@
             <li class="list-group-item"><%= "子供の名前(ニックネーム可) : #{@user.child_name}" %></li>
             <li class="list-group-item"><%= "子供の年齢 : #{@user.child_age}" %></li>
             <li class="list-group-item"><%= "趣味 : #{@user.hobby}" %></li>
+            <Hr>
           </ul>
         </div>
       </div>

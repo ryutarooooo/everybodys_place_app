@@ -629,3 +629,26 @@ article .text_content p {
 .line-title {
   text-align: center;
 }
+
+.profile {
+  border-radius: 50%;
+  /* 角丸半径を50%にする(=円形にする) */
+  width: 100px;
+  /* ※縦横を同値に */
+  height: 100px;
+  /* ※縦横を同値に */
+}
+
+.inline-block_test {
+  display: inline-block;
+  /* インラインブロック要素にする *
+  /* 背景色指定 */
+  /* 余白指定 */
+  height: 10px;
+  /* 高さ指定 */
+  margin-bottom: 30px;
+}
+
+.text_date {
+  margin-right: 40px;
+}
