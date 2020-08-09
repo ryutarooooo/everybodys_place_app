@@ -6,12 +6,13 @@
     <a href="/users/<%= user.id %>">
       <article>
         <figure>
-          <img src=<%= user.profile_image %> alt="サムネイル画像">
+          <img src=<%= user.profile_image %> class="profile" alt="サムネイル画像">
         </figure>
         <div class="text_content">
-          <p class="text_date"><%= user.place %></p>
           <h2><%= user.name %></h2>
-          <p class="text_excerpt"><%= truncate(user.content, length: 20)%></p>
+          <p class="text_date"><%= user.place %></p>
+          <button type="button" class="btn btn-outline-primary"><%= link_to "お話する", "/dm_rooms/#{user.id}", data: {"turbolinks": false} %></button>
+          <p class="text_excerpt"><%= truncate(user.content, length: 30)%></p>
         </div>
       </article>
     </a>
