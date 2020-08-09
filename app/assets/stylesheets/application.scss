@@ -638,3 +638,17 @@ article .text_content p {
   height: 100px;
   /* ※縦横を同値に */
 }
+
+.inline-block_test {
+  display: inline-block;
+  /* インラインブロック要素にする *
+  /* 背景色指定 */
+  /* 余白指定 */
+  height: 10px;
+  /* 高さ指定 */
+  margin-bottom: 30px;
+}
+
+.text_date {
+  margin-right: 40px;
+}
