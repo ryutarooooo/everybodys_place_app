@@ -270,7 +270,7 @@ a.card {
   padding: 8px;
   max-width: 250px;
   border-radius: 12px;
-  background: #30e852;
+  background: orange;
   font-size: 15px;
 }
 
@@ -280,7 +280,7 @@ a.card {
   top: 10px;
   right: -19px;
   border: 8px solid transparent;
-  border-left: 18px solid #30e852;
+  border-left: 18px solid orange;
   -webkit-transform: rotate(-35deg);
   transform: rotate(-35deg);
 }
@@ -651,4 +651,8 @@ article .text_content p {
 
 .text_date {
   margin-right: 40px;
+}
+
+.simple_login {
+  font-weight: bold;
 }

@@ -52,15 +52,18 @@
                 <%= link_to "・その他", movies_path(category: "other"), class: "nav-item nav-link active" %>
               </div>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item">
               <%= link_to 'ワクワクBOX', demands_path, class: 'nav-link' %>
             </li>
           <% else %>
-            <li class="nav-item ">
+            <li class="nav-item">
               <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item">
               <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item simple_login">
+              <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: 'nav-link text-warning'%>
             </li>
           <% end %>
         </li>
