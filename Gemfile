@@ -48,7 +48,7 @@ gem 'fog-aws'
 
 gem 'mini_magick'
 
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 
 
 group :development, :test do
